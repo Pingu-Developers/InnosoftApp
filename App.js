@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from './views/home';
+import MyDrawer from './MyDrawers';
 
 export default function App() {
   return (
-    <Home/>
+      <MyDrawer/>
   );
 }
