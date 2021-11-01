@@ -39,14 +39,11 @@ export default function Home() {
                     </View>
                     <Text style={styles.titulo}>Anímate</Text>
                     <View style={styles.bottom}>
-                        <Text style={styles.boxes}>Si estas interesado en asistir a las jornadas puedes acceder al{' '} 
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Programa')}
-                            >
-                                <Text style={styles.links}>Programa</Text>
-                            </TouchableOpacity>
-                        
-                          {' '}y ver con detalle las actividades que se realizan cada día. Innosoft Days es una gran oportunidad para acercar la tecnología y sus retos actuales a todos.</Text>
+                        <Text style={styles.boxes}>
+                            Si estas interesado en asistir a las jornadas puedes acceder al{' '} 
+                                <Text onPress={() => navigation.navigate('Programa')} style={styles.links}>Programa</Text>
+                          {' '}y ver con detalle las actividades que se realizan cada día. Innosoft Days es una gran oportunidad para acercar la tecnología y sus retos actuales a todos.
+                        </Text>
                     </View>
                     <View style={styles.centrado}>
                     <Image
