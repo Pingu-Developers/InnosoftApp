@@ -6,9 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/home/logo-innosoft.png",
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2C4365"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
