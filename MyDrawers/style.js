@@ -2,9 +2,9 @@ export default {
     title: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: '18px',
-        height: '40px',
-        marginTop: '10px'
+        fontSize: 18,
+        height: 40,
+        marginTop: 10
     },
     titleContainer: {
         alignItems: 'center',
@@ -66,7 +66,7 @@ export default {
 
     tituloTxt: {
         color: 'white',
-        fontSize: 15,
+        //fontSize: 15,
     },
     difuminado:{
         flex:1,

@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator, DrawerItemList} from '@react-navigation/drawer';
+import { createDrawerNavigator} from '@react-navigation/drawer';
 import { Icon } from 'react-native-elements';
 import s from './style';
 
 //Import Views
-import Home from '../views/home';
+import Home from '../views/Home';
 import News from '../views/News';
 import Program from '../views/Program';
 import Speakers from '../views/Speakers';
 import AboutUs from '../views/AboutUs';
+
 
 function DrawerMenu(props){
     return(
@@ -33,7 +34,7 @@ function Menu(props){
             <View style={s.bgContainer}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('Inicio')}>
                     <View style={s.titleContainer}>
-                        <Image style={s.titleImagen} source={require('./logo-innosoft.png')}/>
+                        <Image style={s.titleImagen} source={require('../assets/logo-innosoft.png')}/>
                         <Text style={s.title}>Innosoft Days</Text>
                     </View>
                 </TouchableOpacity>
@@ -52,18 +53,18 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <NavigationContainer>
-    <Drawer.Navigator screenOptions={{
-        headerShown: true,
-        headerTintColor: 'white',
-        headerStyle: {
-            backgroundColor: '#2C4365',
-          }}} drawerContent={(props) => <Menu {...props}/>}>
-      <Drawer.Screen name="Inicio" component={Home} />
-      <Drawer.Screen name="Noticias" component={News} />
-      <Drawer.Screen name="Programa" component={Program} />
-      <Drawer.Screen name="Ponentes" component={Speakers} />
-      <Drawer.Screen name="Sobre nosotros" component={AboutUs}/>
-    </Drawer.Navigator>
+        <Drawer.Navigator screenOptions={{
+            headerShown: true,
+            headerTintColor: 'white',
+            headerStyle: {
+                backgroundColor: '#2C4365',
+            }}} drawerContent={(props) => <Menu {...props}/>}>
+            <Drawer.Screen name="Inicio" component={Home} />
+            <Drawer.Screen name="Noticias" component={News} />
+            <Drawer.Screen name="Programa" component={Program} />
+            <Drawer.Screen name="Ponentes" component={Speakers} />
+            <Drawer.Screen name="Sobre nosotros" component={AboutUs}/>
+        </Drawer.Navigator>
     </NavigationContainer>
   );
 }  
