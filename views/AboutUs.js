@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Home() {
+export default function AboutUs() {
     return (
         <View style={styles.titulo}>
-            <Text>Innosoft Days 2021</Text>
+            <Text>AboutUs</Text>
         </View>
     )
 }
