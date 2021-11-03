@@ -6,18 +6,22 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
+
   const Stack = createStackNavigator ();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-          headerShown: false,
-          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
-        }}>
-        <Stack.Screen name="Slash" component={Slash} />
-        <Stack.Screen name="MyDrawer" component={MyDrawer} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={{flex:1, backgroundColor: '#2C4365',position:'absolute',top:0,bottom:0,left:0,right:0}}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+            presentation: 'modal',
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid
+          }}>
+          <Stack.Screen name="Slash" component={Slash} />
+          <Stack.Screen name="MyDrawer" component={MyDrawer} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
 

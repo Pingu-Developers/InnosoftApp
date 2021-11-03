@@ -21,8 +21,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/home/logo-innosoft.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#2C4365"
+      },
+      "package": "innosoft.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
