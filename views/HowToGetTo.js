@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View , ScrollView} from 'react-native';
 import { WebView } from 'react-native-webview';
-import busLogo from "../assets/AboutUs/Transporte/bus.svg"
-import bicycleLogo from "../assets/AboutUs/Transporte/bicycle.svg"
-import trainLogo from "../assets/AboutUs/Transporte/train.svg"
+import busLogo from "../assets/AboutUs/Transporte/bus.png"
+import bicycleLogo from "../assets/AboutUs/Transporte/bicycle.png"
+import trainLogo from "../assets/AboutUs/Transporte/train.png"
 import { List } from 'react-native-paper';
 
 export default function HowToGetTo() {
@@ -17,8 +17,8 @@ export default function HowToGetTo() {
         "Glta. Letonia (C.Salud Bermejales)",
         "Paseo de Europa (Bolonia)",
         "Dr. Fleming (Est. Benito Villamarín)",
-        "Reina Mercedes (Gta. Alc. Parias Merry)",
-        "Reina Mercedes (Escuela de Ing. Edificación)",
+        "→ Reina Mercedes (Gta. Alc. Parias Merry)",
+        "→ Reina Mercedes (Escuela de Ing. Edificación)",
         "La Palmera (Bueno Monreal)",
         "Paseo Las Delicias (Pabellón de Guatemala)",
         "Paseo Colón (Torre del Oro)",
@@ -69,8 +69,8 @@ export default function HowToGetTo() {
         "Paseo Las delicias (Glorieta Méjico)",
         "La Palmera (Bueno Monreal)",
         "Sor Gregoria Santa Teresa",
-        "Reina Mercedes (Escuela Ing. Edificación)",
-        "Reina Mercedes (E.S.I. Informática)",
+        "→Reina Mercedes (Escuela Ing. Edificación)",
+        "→Reina Mercedes (E.S.I. Informática)",
         "Reina Mercedes (Glta. Alc. Parias Merry)",
         "Padre G. Tejero (Est. Benito Villamarín)",
         "Manuel Siurot (Rafael Salgado)",
@@ -106,7 +106,7 @@ export default function HowToGetTo() {
         "Marqués Luca de Tena (Virgen del Rocío)",
         "Marqués Luca de Tena (Hospital V.Rocio)",
         "Padre G. Tejero (Est. Benito Villamarín)",
-        "Glorieta Alcalde Parias Merry"
+        "→ Glorieta Alcalde Parias Merry"
     ]
 
     const paradas34 = [
@@ -116,8 +116,8 @@ export default function HowToGetTo() {
         "Paseo Las delicias (Glorieta Méjico)",
         "La Palmera (Bueno Monreal)",
         "Sor Gregoria Santa Teresa",
-        "Reina Mercedes (Escuela Ing. Edificación)",
-        "Reina Mercedes (E.S.I. Informática)",
+        "→ Reina Mercedes (Escuela Ing. Edificación)",
+        "→ Reina Mercedes (E.S.I. Informática)",
         "Reina Mercedes (Glta. Alc. Parias Merry)",
         "Dr. Fleming (Est. Benito Villamarín)",
         "Avenida Holanda (Paraná)",
@@ -137,21 +137,19 @@ export default function HowToGetTo() {
 
     const paradas35 = [
         "El Cid Av. (Rectorado)",
-        "Reina Mercedes (E.S.I. Informática)",
+        "→ Reina Mercedes (E.S.I. Informática)",
         "Paseo de Europa (Bolonia)",
         "Alemania Avda (Berlin)",
         "Palmas Altas (C.Comercial)"
     ]
 
     return (
-        <View style={styles.main}>
+        <ScrollView style={styles.main}>
             <View style={styles.container}>
                 <Text style={styles.mainText}>
                     Las IX jornadas se celebrarán en la Escuela Técnica Superior de Ingeniería Informática (ETSII), que está situada en el Campus de Reina Mercedes (Av. Reina Mercedes s/n).
                 </Text>
             </View>
-
-            {<br/>}
 
             <View>
                 <View>
@@ -165,31 +163,28 @@ export default function HowToGetTo() {
                             <List.Section>
                                 <List.AccordionGroup>
                                     <List.Accordion titleStyle={styles.tituloAcordeon} style={styles.acordeon} id="1" title="Línea 03. Bellavista - Pino Montano">
-                                        {paradas3.map((text) => <List.Item titleStyle={styles.paradas} title={"\t" + text}/>)}
+                                        {paradas3.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="2" titleStyle={styles.tituloAcordeon} title="Línea 06. Glorieta Heliópolis – San Lázaro">
-                                        {paradas6.map((text) => <List.Item titleStyle={styles.paradas} title={"\t" + text}/>)}
+                                        {paradas6.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="3" titleStyle={styles.tituloAcordeon} title="Línea 02. Barqueta – Glorieta Heliópolis">
-                                        {paradas2.map((text) => <List.Item titleStyle={styles.paradas} title={"\t" + text}/>)}
+                                        {paradas2.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="4" titleStyle={styles.tituloAcordeon} title="Línea 34. Los Bermejales – Prado">
-                                        {paradas34.map((text) => <List.Item titleStyle={styles.paradas} title={"\t" + text}/>)}
+                                        {paradas34.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="5" titleStyle={styles.tituloAcordeon} title="Línea 35. Los Bermejales – Prado">
-                                        {paradas35.map((text) => <List.Item titleStyle={styles.paradas} title={"\t" + text}/>)}
+                                        {paradas35.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
                                 </List.AccordionGroup>
                             </List.Section>
                         </View>
                     </View>
-
-
-                    {<br/>}
 
                     <View style={styles.container}>
                         <View style={{flexDirection: "row", flexWrap: "wrap"}}>
@@ -197,22 +192,21 @@ export default function HowToGetTo() {
                             <Text style={{fontWeight: 'bold'}}>AUTOBÚS. Consorcio de transporte metropolitano:</Text>
                         </View>
 
-                        <View>
+                        <View style={{paddingLeft:20}}>
                             <Text>
-                                {'\t \u2022 M-132 Sevilla-Dos Hermanas (barriada)'}
+                                • M-132 Sevilla-Dos Hermanas (barriada)
                             </Text>
 
                             <Text>
-                                {'\t \u2022 M-133 Sevilla-Dos Hermanas (por Olivar de Quintos)'}
+                                • M-133 Sevilla-Dos Hermanas (por Olivar de Quintos)
                             </Text>
 
                             <Text>
-                                {'\t \u2022 M-134 Sevilla-Los Palacios'}
+                                • M-134 Sevilla-Los Palacios
                             </Text>
                         </View>
                     </View>
 
-                    {<br/>}
 
                     <View style={styles.container}>
                         <View style={{flexDirection: "row", flexWrap: "wrap"}}>
@@ -221,13 +215,12 @@ export default function HowToGetTo() {
                         </View>
 
                         <View>
-                            <Text>
-                                {'\t \u2022 Línea C-1: Lebrija – Utrera – Santa Justa – Lora del Río'}
+                            <Text style={{paddingLeft:20}}>
+                                • Línea C-1: Lebrija – Utrera – Santa Justa – Lora del Río
                             </Text>
                         </View>
                     </View>
 
-                    {<br/>}
                     
                     <View style={[styles.container,{flexDirection: "row", flexWrap: "wrap"}]}>
                         <Image style={styles.logo} source={bicycleLogo}/> 
@@ -236,11 +229,10 @@ export default function HowToGetTo() {
                 </View>
             </View>
 
-            {<br/>}
 
-            <WebView source={{ html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.337281126704!2d-5.989114684694309!3d37.35819547983738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126dd4a3055555%3A0x29c3f634f8a021b8!2sEscuela%20T%C3%A9cnica%20Superior%20de%20Ingenier%C3%ADa%20Inform%C3%A1tica!5e0!3m2!1ses!2ses!4v1635698332157!5m2!1ses!2ses" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>' }} />
+            <WebView style={{flex:1,height:200,width:'auto',marginTop:20}} source={{ html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.337281126704!2d-5.989114684694309!3d37.35819547983738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126dd4a3055555%3A0x29c3f634f8a021b8!2sEscuela%20T%C3%A9cnica%20Superior%20de%20Ingenier%C3%ADa%20Inform%C3%A1tica!5e0!3m2!1ses!2ses!4v1635698332157!5m2!1ses!2ses" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>' }} />
             
-        </View>
+        </ScrollView>
 
     )
 }
@@ -249,6 +241,7 @@ export default function HowToGetTo() {
 const styles = StyleSheet.create({
     main:{
         margin: 15,
+        flex: 1,
     },
     logo:{
         height: 19,
@@ -267,14 +260,17 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     paradas:{
-        fontSize: 14
+        fontSize: 14,
+        paddingLeft: 20,
     },
     container:{
         backgroundColor: "#E2ECFF",
         borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 40,
-        borderTopRightRadius: 40,
+        borderBottomLeftRadius: 35,
+        borderTopRightRadius: 35,
         borderBottomRightRadius:10,
+        marginVertical:15,
+        padding: 10,
     },
     containerBus:{
         backgroundColor: "#E2ECFF",
@@ -282,11 +278,13 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 10,
         borderTopRightRadius: 10,
         borderBottomRightRadius:10,
+        marginVertical:15,
+        padding: 10
     },
     mainText:{
         textAlign:'center',
         flexWrap: 'wrap',
-        margin:10,
+        margin:6,
         fontSize:16,
         fontFamily: 'sans-serif',
         color:'#535353',

@@ -1,19 +1,19 @@
 import React from 'react';
-import { Image, Linking, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
-import mapLogo from "../assets/AboutUs/Logos/map.svg"
-import contactLogo from "../assets/AboutUs/Logos/contact.svg"
-import organizationLogo from "../assets/AboutUs/Logos/organization.svg"
-import aboutUsLogo from "../assets/AboutUs/Logos/aboutUs.svg"
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import mapLogo from "../assets/AboutUs/Logos/map.png"
+import contactLogo from "../assets/AboutUs/Logos/contact.png"
+import organizationLogo from "../assets/AboutUs/Logos/organization.png"
+import aboutUsLogo from "../assets/AboutUs/Logos/aboutUs.png"
 import pinguLogo from "../assets/AboutUs/Logos/pingu.png"
 
 
 export default function AboutUs() {    
     return (
-        <View>
+        <View style={{marginTop:20}}>
             <View style={styles.main}>
                 <TouchableOpacity style={styles.aboutUs} onPress={()=>{}}>
                     <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                        <Image style={styles.logo} source={aboutUsLogo}/>
+                        <Image tintColor='white' style={styles.logo} source={aboutUsLogo}/>
                         <Text style={styles.texto}>Nosotros</Text>
                     </View>	
                 </TouchableOpacity>
@@ -22,7 +22,7 @@ export default function AboutUs() {
             <View style={styles.main}>
                 <TouchableOpacity style={styles.howToGetTo} onPress={()=>{}}>
                     <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                        <Image style={styles.logo} source={mapLogo}/>
+                        <Image tintColor='white' style={styles.logo} source={mapLogo}/>
                         <Text style={styles.texto}>Cómo llegar</Text>
                     </View>	
                 </TouchableOpacity>
@@ -32,15 +32,15 @@ export default function AboutUs() {
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.RSS} onPress={()=>{}}>
                         <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                            <Image style={[styles.logo, {marginTop: 10}]} source={contactLogo}/>
+                            <Image tintColor='white' style={[styles.logo, {marginTop: 10}]} source={contactLogo}/>
                             <Text style={styles.texto}>Síguenos RSS</Text>
                         </View>	
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.organization} onPress={()=>{}}>
                         <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                            <Image style={[styles.logo, {marginTop: 17}]} source={organizationLogo}/>
-                            <Text style={styles.texto}>Organización</Text>
+                            <Image tintColor='white' style={[styles.logo, {marginTop: 17}]} source={organizationLogo}/>
+                            <Text style={[styles.texto,{fontSize:14}]}>Organización</Text>
                         </View>	
                     </TouchableOpacity>
                 </View>
@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     logo:{
         height: 50,
         width: 50,
-        filter: "brightness(0) invert(1)",
     },
     pinguLogo:{
         width: 120,
@@ -114,7 +113,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: '#233253',
-        marginTop: 30,
-        fontFamily: '"Coolvetica Rg", "Helvetica Neue", Helvetica, Arial, sans-serif'
+        marginTop: 30
     }
 })
