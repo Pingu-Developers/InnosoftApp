@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from './views/home';
+import AboutUs from './views/AboutUs';
 
 export default function App() {
   return (
-    <Home/>
+    <AboutUs/>
   );
 }
