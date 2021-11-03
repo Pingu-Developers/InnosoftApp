@@ -6,9 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/home/logo-innosoft.png",
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2C4365"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,8 +21,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/home/logo-innosoft.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#2C4365"
+      },
+      "package": "innosoft.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
