@@ -163,23 +163,23 @@ export default function HowToGetTo() {
                             <List.Section>
                                 <List.AccordionGroup>
                                     <List.Accordion titleStyle={styles.tituloAcordeon} style={styles.acordeon} id="1" title="Línea 03. Bellavista - Pino Montano">
-                                        {paradas3.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
+                                        {paradas3.map((text,index) => <List.Item key={index} titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="2" titleStyle={styles.tituloAcordeon} title="Línea 06. Glorieta Heliópolis – San Lázaro">
-                                        {paradas6.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
+                                        {paradas6.map((text,index) => <List.Item key={index} titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="3" titleStyle={styles.tituloAcordeon} title="Línea 02. Barqueta – Glorieta Heliópolis">
-                                        {paradas2.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
+                                        {paradas2.map((text,index) => <List.Item key={index} titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="4" titleStyle={styles.tituloAcordeon} title="Línea 34. Los Bermejales – Prado">
-                                        {paradas34.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
+                                        {paradas34.map((text,index) => <List.Item key={index} titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
 
                                     <List.Accordion style={styles.acordeon} id="5" titleStyle={styles.tituloAcordeon} title="Línea 35. Los Bermejales – Prado">
-                                        {paradas35.map((text) => <List.Item titleStyle={styles.paradas} title={text}/>)}
+                                        {paradas35.map((text,index) => <List.Item key={index} titleStyle={styles.paradas} title={text}/>)}
                                     </List.Accordion>
                                 </List.AccordionGroup>
                             </List.Section>
@@ -230,8 +230,8 @@ export default function HowToGetTo() {
             </View>
 
 
-            <WebView style={{flex:1,height:200,width:'auto',marginTop:20}} source={{ html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.337281126704!2d-5.989114684694309!3d37.35819547983738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126dd4a3055555%3A0x29c3f634f8a021b8!2sEscuela%20T%C3%A9cnica%20Superior%20de%20Ingenier%C3%ADa%20Inform%C3%A1tica!5e0!3m2!1ses!2ses!4v1635698332157!5m2!1ses!2ses" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>' }} />
-            
+            {/* <WebView style={{flex:1,height:200,width:'auto',marginTop:20}} source={{ html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.337281126704!2d-5.989114684694309!3d37.35819547983738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126dd4a3055555%3A0x29c3f634f8a021b8!2sEscuela%20T%C3%A9cnica%20Superior%20de%20Ingenier%C3%ADa%20Inform%C3%A1tica!5e0!3m2!1ses!2ses!4v1635698332157!5m2!1ses!2ses" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>' }} />
+             */}
         </ScrollView>
 
     )
