@@ -1,79 +1,92 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, View, Text, Image, Button, Touchable } from 'react-native';
-import logo from '../assets/home/logo-innosoft.png';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export default function Home({navigation}) {
-    const RenderItem = ({item}) => {
-        return (
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: item.backgroundColor,
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              paddingBottom: 100,
-            }}>
-            <Text style={styles.introTitleStyle}>
-              {item.title}
-            </Text>
-            <Image
-              style={styles.introImageStyle}
-              source={item.image} />
-            <Text style={styles.introTextStyle}>
-              {item.text}
-            </Text>
-            { item.button ? 
-                <TouchableOpacity style={styles.buttonCircle} onPress={() => navigation.navigate(item.button.target)}> 
-                    <Text style={{...styles.introTextStyle, paddingVertical: 10}}>{item.button.text}</Text>
-                </TouchableOpacity> : null}
-          </View>
-        );
-    };
-    
-    return (
-        <AppIntroSlider
-        data={slides}
-        renderItem={RenderItem}
-        showDoneButton={false}
-        showNextButton={false}
-        />
-    );
+  const _RenderItem = ({item}) => {
+      return (
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: item.backgroundColor,
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            paddingBottom: 100,
+          }}>
+          <Text style={styles.introTitleStyle}>
+            {item.title}
+          </Text>
+          <Image
+            style={styles.introImageStyle}
+            source={item.image} />
+          <Text style={styles.introTextStyle}>
+            {item.text}
+          </Text>
+          { item.button ? 
+              <TouchableOpacity style={{...styles.buttonCircle, backgroundColor: item.button.backgroundColor}} onPress={() => navigation.navigate(item.button.target)}> 
+                  <Text style={{...styles.introTextStyle, paddingVertical: 10, fontWeight: 'bold'}}>{item.button.text}</Text>
+              </TouchableOpacity> : null
+            }
+        </View>
+      );
+  };
+
+  return (
+      <AppIntroSlider
+      data={slides}
+      renderItem={_RenderItem}
+      showDoneButton={false}
+      showNextButton={false}
+      />
+  );
 }
   
 const slides = [
-    {
-        key: 's1',
-        text: 'Esta es la app de Innosoft',
-        title: '¡Bienvenido!',
-        image: logo,
-        backgroundColor: '#2C4365',
-    },
-    {
-        key: 's2',
-        title: 'Programa',
-        text: 'Visita el calendario de eventos desde la sección del Programa',
-        backgroundColor: '#8AC2E3',
-        button: {
-            text: "Ir a programa",
-            target: 'Programa'
-        },
-        image: {
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Calendar_Icon_White.svg/1200px-Calendar_Icon_White.svg.png',
-        },
-    },
-    {
-        key: 's3',
-        title: 'Great Offers',
-        text: 'Enjoy Great offers on our all services',
-        image: {
-        uri:
-            'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_discount.png',
-        },
-        backgroundColor: '#F7CA60',
+  {
+      key: 's1',
+      text: 'Esta es la app de Innosoft',
+      title: '¡Bienvenido!',
+      image: require('../assets/home/logo-innosoft.png'),
+      backgroundColor: '#2C4365',
+  },
+  {
+      key: 's2',
+      title: 'Programa',
+      text: 'Visita el calendario de eventos desde la sección del Programa',
+      backgroundColor: '#8AC2E3',
+      image: require('../assets/home/calendar.png'),
+      button: {
+          text: "Ir a programa",
+          target: 'Programa',
+          backgroundColor: '#2C4365'
+      }
+  },
+  {
+      key: 's3',
+      title: 'Noticias',
+      text: 'La página de noticias informará sobre las novedades en Innosoft',
+      image: require('../assets/home/news.png'),
+      backgroundColor: '#F7CA60',
+      button: {
+          text: "Ir a noticias",
+          target: 'Noticias',
+          backgroundColor: '#8AC2E3'
+      }
+  },
+  {
+    key: 's4',
+    title: 'Ponentes',
+    text: 'Revisa los ponentes que impartirán talleres y conferencias durante las jornadas',
+    image: require('../assets/home/speakers.png'),
+    backgroundColor: '#8AC2E3',
+    button: {
+        text: "Ir a ponentes",
+        target: 'Ponentes',
+        backgroundColor: '#F7CA60'
     }
+}
 ];
 
 const styles = StyleSheet.create({
@@ -104,7 +117,7 @@ const styles = StyleSheet.create({
     },
     buttonCircle: {
         paddingHorizontal: 30,
-        backgroundColor: 'rgba(0, 0, 0, .2)',
+        backgroundColor: '#2C4365',
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',

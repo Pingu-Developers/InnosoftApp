@@ -57,6 +57,7 @@ function MyDrawer() {
         headerTintColor: 'white',
         headerStyle: {
             backgroundColor: '#2C4365',
+            shadowColor: 'transparent'
         }}} drawerContent={(props) => <Menu {...props}/>}>
         <Drawer.Screen name="Inicio" component={Home} />
         <Drawer.Screen name="Noticias" component={News} />
