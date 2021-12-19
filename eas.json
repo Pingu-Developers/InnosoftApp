@@ -1,0 +1,24 @@
+{
+  "cli": {
+    "version": ">= 0.41.1"
+  },
+  "build": {
+    "preview": {
+      "node": "16.13.0",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "NODE_ENV": "production",
+        "API_HOST": "http://api.example.com",
+        "API_PORT": "80"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

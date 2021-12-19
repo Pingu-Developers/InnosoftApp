@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "innosoft.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,9 @@
     },
     "androidNavigationBar": {
       "visible": "sticky-immersive"
-    }
+    },
+    "plugins": [
+      "expo-system-ui"
+    ]
   }
 }
