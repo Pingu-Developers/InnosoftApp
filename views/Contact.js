@@ -6,10 +6,11 @@ import telegramlogo from "../assets/AboutUs/Logos/telegram.png"
 import twitterlogo from "../assets/AboutUs/Logos/twitter.png"
 import youtubelogo from "../assets/AboutUs/Logos/youtube.png"
 import twitchlogo from "../assets/AboutUs/Logos/twitch.png"
+import { ScrollView } from 'react-native';
 
 export default function Contact() {
     return (
-        <View style={{marginTop:20}}>            
+        <ScrollView style={{marginTop:20}}>            
             <View style={styles.divBoton}>
                 <TouchableOpacity style={[styles.boton, {backgroundColor: '#833AB4'}]} onPress={()=>{Linking.openURL("https://www.instagram.com/innosoftdays/")}}>
                     <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
@@ -64,7 +65,7 @@ export default function Contact() {
                 </TouchableOpacity>
             </View>
             
-        </View>
+        </ScrollView>
     
     )
 }

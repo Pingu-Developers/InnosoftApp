@@ -1,56 +1,64 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import mapLogo from "../assets/AboutUs/Logos/map.png"
 import contactLogo from "../assets/AboutUs/Logos/contact.png"
 import organizationLogo from "../assets/AboutUs/Logos/organization.png"
 import aboutUsLogo from "../assets/AboutUs/Logos/aboutUs.png"
 import pinguLogo from "../assets/AboutUs/Logos/pingu.png"
+import { Col, Row, Grid } from "react-native-easy-grid";
+import { Dimensions } from 'react-native';
+import { ScrollView } from 'react-native';
 
-export default function AboutUs({navigation}) {    
-    
+
+export default function AboutUs({navigation}) {
     return (
-        <View style={{marginTop:20}}>
-            <View style={styles.main}>
-                <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('Sobre nosotros')}}>
-                    <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                        <Image tintColor='white' style={styles.logo} source={aboutUsLogo}/>
-                        <Text style={styles.texto}>Nosotros</Text>
-                    </View>	
-                </TouchableOpacity>
-            </View>
+        <View style={styles.main}>
+            <Grid>
+                <Row size={20}>
+                    <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('Sobre nosotros')}}>
+                        <View style={styles.content}>
+                            <Image tintColor='white' style={styles.logo} source={aboutUsLogo}/>
+                            <Text style={styles.texto}>Nosotros</Text>
+                        </View>
+                    </TouchableOpacity>                    
+                </Row>
 
-            <View style={styles.main}>
-                <TouchableOpacity style={styles.howToGetTo} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Como Llegar'})}}>
-                    <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                        <Image tintColor='white' style={styles.logo} source={mapLogo}/>
-                        <Text style={styles.texto}>Cómo llegar</Text>
-                    </View>	
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.main}>
-                <View style={styles.buttons}>
+                <Row size={40}>
                     <TouchableOpacity style={styles.RSS} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Contactanos'})}}>
-                        <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                            <Image tintColor='white' style={[styles.logo, {marginTop: 10}]} source={contactLogo}/>
-                            <Text style={styles.texto}>Síguenos RSS</Text>
+                        <View style={styles.content}>
+                            <Image tintColor='white' style={styles.logo} source={contactLogo}/>
+                            <Text style={styles.texto}>Síguenos en RSS</Text>
                         </View>	
                     </TouchableOpacity>
+                </Row>
 
-                    <TouchableOpacity style={styles.organization} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Organización'})}}>
-                        <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>
-                            <Image tintColor='white' style={[styles.logo, {marginTop: 17}]} source={organizationLogo}/>
-                            <Text style={[styles.texto,{fontSize:14}]}>Organización</Text>
-                        </View>	
-                    </TouchableOpacity>
-                </View>
-            </View>
+                <Row size={20} style={styles.rowSpace}>
+                    <Col>
+                        <TouchableOpacity style={styles.howToGetTo} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Como Llegar'})}}>
+                            <View style={styles.content}>
+                                <Image tintColor='white' style={styles.logo} source={mapLogo}/>
+                                <Text style={styles.texto}>Cómo llegar</Text>
+                            </View>	
+                        </TouchableOpacity>
+                    </Col>
 
-            <View style={styles.main}>
-                <Text style={styles.textPingu}> POWERED BY </Text>
-                <Image style={styles.pinguLogo} source={pinguLogo}/>
-            </View>
+                    <Col>
+                        <TouchableOpacity style={styles.organization} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Organización'})}}>
+                            <View style={styles.content}>
+                                <Image tintColor='white' style={styles.logo} source={organizationLogo}/>
+                                <Text style={styles.texto}>Organización</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </Col>
+                </Row>
+
+                <Row size={15}>
+                    <View style={styles.footer}>
+                        <Text style={styles.textPingu}> POWERED BY </Text>
+                        <Image style={styles.pinguLogo} source={pinguLogo}/>
+                    </View>
+                </Row>
+            </Grid>
         </View>
     )
 }
@@ -58,43 +66,43 @@ export default function AboutUs({navigation}) {
 
 const styles = StyleSheet.create({
     main:{
-        margin: 10,
+        height:'100%',
+        margin: 15,
     },
-    buttons:{
-        flexDirection: 'row',
-        justifyContent: 'center',        
+    content:{
+        flexDirection: "row", 
+        flexWrap: "wrap", 
+        justifyContent: 'center', 
+        alignItems: 'center'
     },
     aboutUs:{
-        padding: 16,
-        width: "80%",
-        backgroundColor: "#233253",
-        borderRadius: 15,
-        alignSelf: 'center'
+        padding: 20,
+        width: "100%",
+        backgroundColor: "#2C4365",
+        justifyContent: 'center',
     },
     howToGetTo:{
-        padding: 40,
-        width: "80%",
+        padding: 20,
+        width: "100%",
         backgroundColor: "#6099c4",
-        borderRadius: 15,
-        alignSelf: 'center'
+        justifyContent: 'center',
     },
     RSS:{
-        padding: 15,
-        width: "37%",
+        marginTop: 35,
+        padding: 20,
+        width: "100%",
         backgroundColor: "#6099c4",
-        borderRadius: 15,
-        marginRight: 19
+        justifyContent: 'center',
     },
     organization:{
-        padding: 15,
-        width: "37%",
+        padding: 20,
+        width: "100%",
         backgroundColor: "#e0ad0f",
-        borderRadius: 15,
-        alignItems: 'center'
+        justifyContent: 'center',
     },
     texto:{
         color:'white',
-        margin: 15,
+        paddingLeft: 10,
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold'
@@ -107,13 +115,24 @@ const styles = StyleSheet.create({
         width: 120,
         height: 90,
         resizeMode: "contain",
-        alignSelf: 'center',
     },
     textPingu:{
         textAlign: 'center',
         fontSize: 15,
         fontWeight: 'bold',
         color: '#233253',
-        marginTop: 30
-    }
+    },
+    footer:{
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingHorizontal: 30,
+    },
+    rowSpace:{
+        marginTop: 35,
+    },
 })
