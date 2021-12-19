@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 16.13.0
 
       - name: Set Up JDK
         uses: actions/setup-java@v1
@@ -30,12 +30,8 @@ jobs:
           expo-version: 4.x
           expo-token: ${{ secrets.EXPO_TOKEN }}
           expo-cache: true
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Build on EAS
-        id: build_eas
+          
+      - name: Build
         run: |
           mkdir -p ./builds/android
           npx eas-cli build -p android --profile preview --non-interactive --local --clear-cache
