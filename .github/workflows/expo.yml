@@ -27,7 +27,7 @@ jobs:
       - name: Setup Expo
         uses: expo/expo-github-action@v5
         with:
-          expo-version: 4.12.11
+          expo-version: 5.0.1
           expo-token: ${{ secrets.EXPO_TOKEN }}
           expo-cache: true
 
