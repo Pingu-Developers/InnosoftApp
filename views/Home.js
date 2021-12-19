@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
 
 export default function Home({navigation}) {
   const _RenderItem = ({item}) => {
