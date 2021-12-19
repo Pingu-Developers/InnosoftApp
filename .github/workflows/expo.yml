@@ -30,7 +30,10 @@ jobs:
           expo-version: 4.x
           expo-token: ${{ secrets.EXPO_TOKEN }}
           expo-cache: true
-          
+
+      - name: Install deps
+        run: npm ci
+
       - name: Build
         run: |
           mkdir -p ./builds/android
