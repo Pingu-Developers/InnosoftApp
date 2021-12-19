@@ -37,9 +37,9 @@ jobs:
       - name: Build on EAS
         id: build_eas
         run: |
-        mkdir -p ./builds/android
-        npx eas-cli build -p android --profile preview --non-interactive --local --clear-cache
-#        npx eas-cli build -p ios --profile preview --non-interactive --local --clear-cache
+          mkdir -p ./builds/android
+          npx eas-cli build -p android --profile preview --non-interactive --local --clear-cache
+#         npx eas-cli build -p ios --profile preview --non-interactive --local --clear-cache
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
