@@ -1,5 +1,8 @@
 # InnosoftApp
 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
+
+
 InnosoftAPP es la aplicación de Android e IOS que permitirá visualizar la web original (https://institucional.us.es/innosoft/) comodamente y adaptada para dispositivos móviles.
 
 ## Comenzando 🚀
