@@ -19,6 +19,13 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "node": "16.13.0",
+      "env": {
+        "NODE_ENV": "production",
+        "API_HOST": "http://api.example.com",
+        "API_PORT": "80"
+      }
+    }
   }
 }
