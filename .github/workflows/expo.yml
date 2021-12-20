@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Innosoft.apk
+          name: Innosoft-Android
           path: "./builds/android/Innosoft.apk"
 
   Build-for-ios:
@@ -82,7 +82,7 @@ jobs:
       - name: Upload tarball
         uses: actions/upload-artifact@v2
         with:
-          name: Innosoft.tar.gz
+          name: Innosoft-iOS
           path: ./builds/ios/Innosoft.tar.gz
 
   Github-release:
@@ -101,8 +101,8 @@ jobs:
       
       - name: Untar tgz file
         run: |
-          tar -xvf ./builds/Innosoft.tar.gz -C ./builds
-          mv ./builds/*.app ./builds/Innosoft.app
+          tar -xvf ./builds/Innosoft-iOS/Innosoft.tar.gz -C ./builds/Innosoft-iOS/
+          mv ./builds/Innosoft-iOS/*.app ./builds/Innosoft-iOS/Innosoft.app
 
       - name: Conventional Changelog
         id: changelog
@@ -130,7 +130,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft.apk
+          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft-Android/Innosoft.apk
           asset_name: Innosoft.apk
           asset_content_type: application/vnd.android.package-archive
       
@@ -140,7 +140,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft.tar.gz
+          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft-iOS/Innosoft.tar.gz
           asset_name: Innosoft.tar.gz
           asset_content_type: application/gzip
 
@@ -150,7 +150,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft.app
+          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft-iOS/Innosoft.app
           asset_name: Innosoft.app
           asset_content_type: application/octet-stream
       
