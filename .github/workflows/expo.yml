@@ -7,6 +7,7 @@ on:
 
 jobs:
   Build-for-android:
+    name: Android build
     runs-on: ubuntu-latest
     env:
       EAS_LOCAL_BUILD_ARTIFACTS_DIR: ./builds/android
@@ -32,19 +33,57 @@ jobs:
           expo-cache: true
 
       - name: Install deps
-        run: |
-          sudo apt install -y rename
-          npm ci
+        run: npm ci
 
       - name: Build
         run: |
           mkdir -p ./builds/android
           npx eas-cli build -p android --profile preview --non-interactive --local --clear-cache
-          rename 's|:|-|g' ./builds/android/*.apk
-#         npx eas-cli build -p ios --profile preview --non-interactive --local --clear-cache
+          mv ./builds/android/*.apk ./builds/android/Innosoft.apk
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: "Innosoft.apk"
-          path: "./builds/android/*.apk"
+          path: "./builds/android/Innosoft.apk"
+
+  Build-for-ios:
+    name: iOS build
+    runs-on: macos-latest
+    env:
+      EAS_LOCAL_BUILD_ARTIFACTS_DIR: ./builds/ios
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.0
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v5
+        with:
+          expo-version: 5.0.1
+          expo-token: ${{ secrets.EXPO_TOKEN }}
+          expo-cache: true
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: |
+          mkdir -p ./builds/ios
+          npx eas-cli build -p ios --profile preview --non-interactive --local --clear-cache
+          mv ./builds/ios/*.tar.gz ./builds/ios/Innosoft.tar.gz
+          tar -zxvf Innosoft.tar.gz
+          mv ./builds/ios/*.app ./builds/ios/Innosoft.app
+
+      - name: Upload tarball
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./builds/ios/Innosoft.tar.gz
+
+      - name: Upload app
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./builds/ios/Innosoft.app
