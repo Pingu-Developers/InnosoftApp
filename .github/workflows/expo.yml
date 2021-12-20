@@ -38,6 +38,7 @@ jobs:
         run: |
           mkdir -p ./builds/android
           npx eas-cli build -p android --profile preview --non-interactive --local --clear-cache
+          rename 's|:|-|g' ./builds/android/*.apk
 #         npx eas-cli build -p ios --profile preview --non-interactive --local --clear-cache
 
       - name: Upload artifacts
