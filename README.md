@@ -1,5 +1,6 @@
 # InnosoftApp
 
+[![Build and Release](https://github.com/Pingu-Developers/InnosoftApp/actions/workflows/expo.yml/badge.svg)](https://github.com/Pingu-Developers/InnosoftApp/actions/workflows/expo.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 
 
