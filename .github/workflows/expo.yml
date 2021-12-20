@@ -32,7 +32,9 @@ jobs:
           expo-cache: true
 
       - name: Install deps
-        run: npm ci
+        run: |
+          sudo apt install -y rename
+          npm ci
 
       - name: Build
         run: |
