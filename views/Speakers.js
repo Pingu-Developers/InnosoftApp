@@ -38,7 +38,9 @@ export default function Speakers({navigation}) {
                 marginLeft: 20,
                 marginRight: 20,
                 marginBottom: windowHeight/8,
-                 }}>
+                 }}
+                showsVerticalScrollIndicator={false}
+            >
                 <Card.Title style={styles.title}>{item.name}</Card.Title>
                 <Card.Divider/>
                 <Text style={styles.job}>{item.job !=null? item.job:'Ponente'}</Text>
