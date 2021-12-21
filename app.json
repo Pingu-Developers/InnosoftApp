@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "innosoft.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "androidNavigationBar": {
+      "visible": "sticky-immersive"
+    },
+    "plugins": [
+      "expo-system-ui"
+    ]
   }
 }

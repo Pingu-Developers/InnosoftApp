@@ -10,6 +10,7 @@ import News from '../views/News';
 import Program from '../views/Program';
 import Speakers from '../views/Speakers';
 import AboutUs from '../views/AboutUs';
+import StackAboutUs from '../views/StackAboutUS';
 
 
 function DrawerMenu(props){
@@ -42,7 +43,7 @@ function Menu(props){
             <DrawerMenu iconName='article' titleName='Noticias' navigation={()=>props.navigation.navigate('Noticias')}/>
             <DrawerMenu iconName='schedule' titleName='Programa' navigation={()=>props.navigation.navigate('Programa')}/>
             <DrawerMenu iconName='people' titleName='Ponentes' navigation={()=>props.navigation.navigate('Ponentes')}/>
-            <DrawerMenu iconName='call' titleName='Sobre nosotros' navigation={()=>props.navigation.navigate('Sobre nosotros')}/>
+            <DrawerMenu iconName='call' titleName='Sobre nosotros' navigation={()=>props.navigation.navigate('Sobre nosotros',{screen:'AboutUs'})}/>
         </View>
     )
 }
@@ -56,12 +57,13 @@ function MyDrawer() {
         headerTintColor: 'white',
         headerStyle: {
             backgroundColor: '#2C4365',
+            shadowColor: 'transparent'
         }}} drawerContent={(props) => <Menu {...props}/>}>
         <Drawer.Screen name="Inicio" component={Home} />
         <Drawer.Screen name="Noticias" component={News} />
         <Drawer.Screen name="Programa" component={Program} />
         <Drawer.Screen name="Ponentes" component={Speakers} />
-        <Drawer.Screen name="Sobre nosotros" component={AboutUs}/>
+        <Drawer.Screen name="Sobre nosotros" component={StackAboutUs}/>
     </Drawer.Navigator>
   );
 }  
