@@ -98,22 +98,18 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           path: './builds'
-      
-      - name: Untar tgz file
-        run: |
-          tar -xvf ./builds/Innosoft-iOS/Innosoft.tar.gz -C ./builds/Innosoft-iOS/
-          mv ./builds/Innosoft-iOS/*.app ./builds/Innosoft-iOS/Innosoft.app
 
       - name: Conventional Changelog
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v2
+        uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           output-file: 'CHANGELOG.md'
           tag-prefix: 'v'
           release-count: 0
           fallback-version: '1.0.0'
-          package-json: './package.json'
+          version-file: './package.json'
+          skip-on-empty: 'false'
       
       - name: Create Release
         id: create_release
@@ -141,9 +137,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft-iOS/Innosoft.app
-          asset_name: Innosoft.app
-          asset_content_type: application/octet-stream
+          asset_path: ${{ steps.download-builds.outputs.download-path }}/Innosoft-iOS/Innosoft.tar.gz
+          asset_name: Innosoft.tar.gz
+          asset_content_type: application/gzip
       
       - name: Sync develop with main
         uses: repo-sync/pull-request@v2
