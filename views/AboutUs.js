@@ -1,13 +1,11 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, WebView } from 'react-native';
 import mapLogo from "../assets/AboutUs/Logos/map.png"
 import contactLogo from "../assets/AboutUs/Logos/contact.png"
 import organizationLogo from "../assets/AboutUs/Logos/organization.png"
 import aboutUsLogo from "../assets/AboutUs/Logos/aboutUs.png"
 import pinguLogo from "../assets/AboutUs/Logos/pingu.png"
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { Dimensions } from 'react-native';
-import { ScrollView } from 'react-native';
 
 
 export default function AboutUs({navigation}) {
@@ -105,7 +103,8 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         textAlign: 'center',
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 10,
     },
     logo:{
         height: 50,
