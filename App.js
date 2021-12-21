@@ -1,7 +1,7 @@
 import React from 'react';
 import MyDrawer from './MyDrawers';
 import LottieView from 'lottie-react-native';
-import {View} from 'react-native';
+import {Platform , View} from 'react-native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -26,6 +26,15 @@ export default function App() {
 }
 
 const Slash = ({navigation}) => {
+  //check if react-native is open in browser
+  if(Platform.OS === 'web'){
+    navigation.replace('MyDrawer')
+    return (
+      <View style={{position:'absolute',top:0,bottom:0,left:0,right:0,backgroundColor:'#2C4365',justifyContent:'center',alignItems:'center'}}>
+      </View>
+    )
+  }
+
   return(
     <View style={{position:'absolute',top:0,bottom:0,left:0,right:0,backgroundColor:'#2C4365',justifyContent:'center',alignItems:'center'}}>
         <LottieView 
