@@ -13,7 +13,7 @@
       },
       "env": {
         "NODE_ENV": "production",
-        "API_HOST": "http://api.example.com",
+        "API_HOST": "20.105.179.3",
         "API_PORT": "80"
       }
     }

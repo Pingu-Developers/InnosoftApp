@@ -5,6 +5,7 @@ import Contact from './Contact';
 import HowToGetTo from './HowToGetTo';
 import Organization from './Organization';
 import AboutUs from './AboutUs';
+import PopUpTransport from './PopUpTransport';
 
 export default function StackAboutUs() {
   const Stack = createStackNavigator ();
@@ -19,6 +20,7 @@ export default function StackAboutUs() {
           <Stack.Screen name="Contactanos" component={Contact} />
           <Stack.Screen name="Como Llegar" component={HowToGetTo} />
           <Stack.Screen name="Organización" component={Organization}/>
+          <Stack.Screen name="PopUpTransport" component={PopUpTransport}/>
       </Stack.Navigator>
   )
 };
