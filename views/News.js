@@ -4,8 +4,6 @@ import { ActivityIndicator, ScrollView, StyleSheet, Text, View,Pressable } from 
 import { Card,Icon } from 'react-native-elements'
 import { useIsFocused } from "@react-navigation/native";
 
-import { NavigationContainer } from '@react-navigation/native';
-
 import {
     SharedElement,
     createSharedElementStackNavigator,
@@ -41,7 +39,7 @@ export default function MainScreen ({navigation}) {
 
     React.useEffect(async() => {
         if(isFocused){ 
-            const url = `http://${process.env.API_HOST||'localhost'}:${process.env.API_PORT||'5000'}/api/v1/posts`;
+            const url = `http://${process.env.API_HOST||'192.168.1.77'}:${process.env.API_PORT||'5000'}/api/v1/posts`;
             await axios.get(url)
                 .then(res => {
                     setNews(res.data);

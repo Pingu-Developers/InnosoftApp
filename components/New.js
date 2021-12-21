@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView ,Text } from "react-native";
-import { Card } from 'react-native-elements'
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Card } from 'react-native-elements'
 import RenderHTML from "react-native-render-html";
 
 import {
@@ -28,13 +28,13 @@ export default function New({ route, navigation }) {
   contentDivided = contentDivided.reduce((acc, val) => acc.concat(val), []);
   
   return (
-    <ScrollView style={{margin:10}}>
+    <ScrollView style={{}}>
       <SharedElement id={newItem.postId}>
-          <Text style={{color:'#2C4365',fontSize:20,fontWeight:'bold',textAlign:'center'}}>
+          <Text style={{color:'#2C4365', marginTop:10,fontSize:20,fontWeight:'bold',textAlign:'center'}}>
               {newItem.postTitle}
           </Text>
       </SharedElement>
-
+      <Card style={{marginBot:10}}>
       {contentDivided.map((item, index) => { 
         if(index % 2 === 0){
           return <RenderHTML key={index} style={{margin:0}} contentWidth={300} source={{html:`<p style=\"text-align: justify;\ margin=0;" >${item}</p>`}}/>
@@ -55,6 +55,7 @@ export default function New({ route, navigation }) {
           )
         }
       })}
+      </Card>
     </ScrollView>
   )
 }
