@@ -39,7 +39,7 @@ export default function MainScreen ({navigation}) {
 
     React.useEffect(async() => {
         if(isFocused){ 
-            const url = `http://${process.env.API_HOST}:${process.env.API_PORT}/api/v1/posts`;
+            const url = `${process.env.API_HOST}:${process.env.API_PORT}/api/v1/posts`;
             await axios.get(url)
                 .then(res => {
                     setNews(res.data);

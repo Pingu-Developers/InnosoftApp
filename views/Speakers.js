@@ -16,7 +16,7 @@ export default function Speakers({navigation}) {
 
     React.useEffect(async()=> {
         if(isFocused){
-            const url = `http://${process.env.API_HOST}:${process.env.API_PORT}/api/v1/speakers`;
+            const url = `${process.env.API_HOST}:${process.env.API_PORT}/api/v1/speakers`;
             await axios.get(url)
             .then( res=> {
                 setSpeakers(res.data);
