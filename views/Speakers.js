@@ -1,6 +1,6 @@
 import { useIsFocused } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet,ScrollView, Text, View } from 'react-native';
+import { StyleSheet,ScrollView, Text, View,RefreshControl,ActivityIndicator } from 'react-native';
 import axios from 'axios';
 import Carousel from 'react-native-snap-carousel';
 import {Card } from 'react-native-elements';
@@ -13,10 +13,24 @@ export default function Speakers({navigation}) {
     const carouselItems = [];
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
+    const API_HOST = process.env.API_HOST;
+    const API_PORT = process.env.API_PORT;
+    const [refreshing, setRefreshing] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
+
+
+    const wait = (timeout) => {
+        return new Promise(resolve => setTimeout(resolve, timeout));
+      }
+    const onRefresh = React.useCallback(() => {
+        console.log('Refreshing...')
+        setRefreshing(true);
+        wait(1000).then(() => setRefreshing(false));
+      }, []);
 
     React.useEffect(async()=> {
         if(isFocused){
-            const url = `${process.env.API_HOST}:${process.env.API_PORT}/api/v1/speakers`;
+            const url = `http://${API_HOST}:${API_PORT}/api/v1/speakers`;
             await axios.get(url)
             .then( res=> {
                 setSpeakers(res.data);
@@ -24,8 +38,17 @@ export default function Speakers({navigation}) {
             .catch(err => {
                 console.log(err);
             });
+            setLoading(false);
         }
     }, [isFocused])
+
+    if (loading) {
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#54aaff" />
+            </View>
+        )
+    }
   
     const renderItem = ({item, index}) => {
         return (
@@ -56,20 +79,31 @@ export default function Speakers({navigation}) {
         return carouselItems
     }
     return (
+        speakers && speakers.length?
         <View style={styles.main}>
-                <Carousel
-                layout={"stack"}
-                useRef={'carousel'}
-                data={populateSpeakers(speakers)}
-                sliderWidth={200}
-                itemWidth={windowWidth}
-                renderItem={renderItem}
-                loop={true}
+            <Carousel
+                refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefresh}
                 />
-            </View>
+                }
+            layout={"stack"}
+            useRef={'carousel'}
+            data={populateSpeakers(speakers)}
+            sliderWidth={200}
+            itemWidth={windowWidth}
+            renderItem={renderItem}
+            loop={true}
+            />
+        </View>:
+              <View style={styles.container}>
+              <Text style={{fontSize:20,color:"#cccccc"}}>
+                  No hay ponentes
+              </Text>
+          </View>
     )
 }
-
 
 const styles = StyleSheet.create({
     main: {
@@ -97,6 +131,10 @@ const styles = StyleSheet.create({
         fontSize:15,
         paddingTop:10,
         paddingBottom:70
+    }, container: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center'
     }
     
 })
