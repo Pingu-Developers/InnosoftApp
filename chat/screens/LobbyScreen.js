@@ -20,7 +20,7 @@ const LobbyScreen = (props) => {
 
                 <View style={{alignItems: "flex-end", matginTop: 64}}>
 
-                    <TouchableOpacity style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, sala: pin})}>
+                    <TouchableOpacity style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, room: pin})}>
                         <Ionicons name="ios-arrow-forward" size={32} color="white" />
                     </TouchableOpacity>                    
                 </View>

@@ -69,7 +69,6 @@ function MyDrawer() {
         <Drawer.Screen name="Ponentes" component={Speakers} />
         <Drawer.Screen name="Sobre nosotros" component={StackAboutUs}/>
         <Drawer.Screen name="Chat" component={LoginScreen}/>
-        <Drawer.Screen name="Sobre nosotros" component={AboutUs}/>
         <Drawer.Screen name="Sala" component={ChatScreen}/>
         <Drawer.Screen name="Lobby" component={LobbyScreen}/>
     </Drawer.Navigator>

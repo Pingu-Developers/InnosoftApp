@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getDocs, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBoUQ1NSxZuqVTeKRQrUc3B_Ze1gf5Tuzc",
@@ -14,8 +14,16 @@ const firebaseConfig = {
 };
 
 // initialize firebase
-initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 
 export const database = getFirestore();
+
+export async function getMessages(db) {
+  const messagesCol = collection(db, 'messages');
+  const messageSnapshot = await getDocs(messagesCol);
+  const messageList = messageSnapshot.docs.map(doc => doc.data());
+  return messageList;
+
+}
