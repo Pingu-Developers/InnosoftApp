@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View,Pressable } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View,Pressable,RefreshControl } from 'react-native';
 import { Card,Icon } from 'react-native-elements'
 import { useIsFocused } from "@react-navigation/native";
 
@@ -35,11 +35,23 @@ export default function MainScreen ({navigation}) {
  function News({navigation}) {
     const [loading, setLoading] = React.useState(true);
     const [news, setNews] = React.useState([]);
+    const [refreshing, setRefreshing] = React.useState(false);
     const isFocused = useIsFocused();
+    const API_HOST = process.env.API_HOST;
+    const API_PORT = process.env.API_PORT;
+
+    const wait = (timeout) => {
+        return new Promise(resolve => setTimeout(resolve, timeout));
+      }
+    const onRefresh = React.useCallback(() => {
+        console.log('Refreshing...')
+        setRefreshing(true);
+        wait(1000).then(() => setRefreshing(false));
+      }, []);
 
     React.useEffect(async() => {
         if(isFocused){ 
-            const url = `${process.env.API_HOST}:${process.env.API_PORT}/api/v1/posts`;
+            const url = `http://${API_HOST}:${API_PORT}/api/v1/posts`;
             await axios.get(url)
                 .then(res => {
                     setNews(res.data);
@@ -61,7 +73,14 @@ export default function MainScreen ({navigation}) {
 
     return (
         news && news.length?
-        <ScrollView>
+        <ScrollView
+        refreshControl={
+            <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+            />
+            }>
+           
             {news.map((newItem) => (
                 <Pressable
                     key={newItem.postId}
