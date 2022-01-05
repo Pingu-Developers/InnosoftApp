@@ -4,7 +4,7 @@ import {Ionicons} from '@expo/vector-icons';
 
 const LobbyScreen = (props) => {
     const [pin, setPin] = React.useState('');
-    const name = props.route.params.name;
+    let name = props.route.params.name;
 
     return (
         <View style={styles.container}>
@@ -20,14 +20,14 @@ const LobbyScreen = (props) => {
 
                 <View style={{alignItems: "flex-end", matginTop: 64}}>
 
-                    <TouchableOpacity style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, room: pin})}>
+                    <TouchableOpacity style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, room: pin || "general"})}>
                         <Ionicons name="ios-arrow-forward" size={32} color="white" />
                     </TouchableOpacity>                    
                 </View>
                 
                 <View>
                 <Text style={styles.body}>o también puedes acceder a la sala general:</Text>
-                    <TouchableOpacity style={styles.salaGeneral} onPress={() => props.navigation.navigate('Sala', {name: name, sala: "general"})}>
+                    <TouchableOpacity style={styles.salaGeneral} onPress={() => props.navigation.navigate('Sala', {name: name, room: "general"})}>
                         <Text style={styles.button}>Acceder</Text>
                     </TouchableOpacity>
                 </View>

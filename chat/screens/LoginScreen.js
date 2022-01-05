@@ -7,7 +7,6 @@ const LoginScreen = (props) => {
     const [name, setName] = React.useState("");
 
     const continueToChat = () => {
-        console.log(name);
         props.navigation.navigate("Lobby", {name: name});
         
     };
