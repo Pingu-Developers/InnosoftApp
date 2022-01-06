@@ -6,6 +6,7 @@ import HowToGetTo from './HowToGetTo';
 import Organization from './Organization';
 import AboutUs from './AboutUs';
 import PopUpTransport from './PopUpTransport';
+import InnosoftDays from './InnosoftDays';
 
 export default function StackAboutUs() {
   const Stack = createStackNavigator ();
@@ -17,6 +18,7 @@ export default function StackAboutUs() {
           cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid
         }}>
           <Stack.Screen name="AboutUs" component={AboutUs} />
+          <Stack.Screen name="InnosoftDays" component={InnosoftDays} />
           <Stack.Screen name="Contactanos" component={Contact} />
           <Stack.Screen name="Como Llegar" component={HowToGetTo} />
           <Stack.Screen name="Organización" component={Organization}/>
