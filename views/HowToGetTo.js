@@ -19,7 +19,7 @@ export default function HowToGetTo({navigation}) {
                 <Grid>
                     <Row style={{marginTop: 15}}>
                         <Col size={50} style={{marginRight: 5}}>
-                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport',{transport: 'tussam'})} }>
+                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('Transporte',{transport: 'tussam'})} }>
                                 <View style={styles.viewImageText}>
                                     <Image tintColor='white' style={styles.logo} source={busLogo}/>
                                     <Text style={styles.texto}>TUSSAM</Text>
@@ -28,7 +28,7 @@ export default function HowToGetTo({navigation}) {
                         </Col>
 
                         <Col size={50} style={{marginLeft: 5}}>
-                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport', {transport: 'consorcio'})} }>
+                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('Transporte', {transport: 'consorcio'})} }>
                                 <View style={styles.viewImageText}>
                                     <Image tintColor='white' style={styles.logo} source={busLogo}/>
                                     <Text style={styles.texto}>CONSORCIO</Text>
@@ -39,7 +39,7 @@ export default function HowToGetTo({navigation}) {
 
                     <Row style={{marginTop: 10}}>
                         <Col size={50} style={{marginRight: 5}}>
-                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport', {transport:'renfe'})} }>
+                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('Transporte', {transport:'renfe'})} }>
                                 <View style={styles.viewImageText}>
                                     <Image tintColor='white' style={styles.logo} source={trainLogo}/> 
                                     <Text style={styles.texto}>RENFE</Text>
@@ -48,7 +48,7 @@ export default function HowToGetTo({navigation}) {
                         </Col>
 
                         <Col size={50} style={{marginLeft: 5}}>
-                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport', {transport:'bycicle'})} }>
+                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('Transporte', {transport:'bicycle'})} }>
                                 <View style={styles.viewImageText}>
                                     <Image tintColor='white' style={{...styles.logo, width:29}} source={bicycleLogo}/> 
                                     <Text style={styles.texto}>BICICLETA</Text>
