@@ -48,7 +48,7 @@ export default function HowToGetTo({navigation}) {
                         </Col>
 
                         <Col size={50} style={{marginLeft: 5}}>
-                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport', {transport:'bycicle'})} }>
+                            <TouchableOpacity style={styles.box} onPress={() => {navigation.navigate('PopUpTransport', {transport:'bicycle'})} }>
                                 <View style={styles.viewImageText}>
                                     <Image tintColor='white' style={{...styles.logo, width:29}} source={bicycleLogo}/> 
                                     <Text style={styles.texto}>BICICLETA</Text>

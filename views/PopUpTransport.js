@@ -1,12 +1,16 @@
 import * as React from 'react';
-import {Image, StyleSheet, Text, View , ScrollView, TouchableHighlight} from 'react-native';
+import {Image, StyleSheet, Text, View , ScrollView, Modal, TouchableOpacity} from 'react-native';
 import { List } from 'react-native-paper';
 import busLogo from "../assets/AboutUs/Transporte/bus.png"
 import bicycleLogo from "../assets/AboutUs/Transporte/bicycle.png"
 import trainLogo from "../assets/AboutUs/Transporte/train.png"
 import appstore from "../assets/AboutUs/Logos/appstore.png"
 import googleplay from "../assets/AboutUs/Logos/googleplay.png"
+import busM132 from "../assets/AboutUs/Transporte/busM132.jpg"
+import sevici from "../assets/AboutUs/Transporte/sevici.png"
 import { Linking } from 'react-native';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import logoBusConsorcio from '../assets/AboutUs/Transporte/logoBusConsorcio.png'
 
 export default function PopUpComponent({route, navigation}) {
 
@@ -146,6 +150,31 @@ export default function PopUpComponent({route, navigation}) {
         "Palmas Altas (C.Comercial)"
     ]
 
+    const mapasConsorcioBus = [ 
+        {
+            props: {
+                source: require('../assets/AboutUs/Transporte/busM132.jpg'),
+            }
+        },
+        {
+            props: {
+                source: require('../assets/AboutUs/Transporte/busM133.png'),
+            }
+        },
+        {
+            props: {
+                source: require('../assets/AboutUs/Transporte/busM134.jpg'),
+            }
+        }
+    ]
+
+    const imagePreviewRenfe = [ {
+        props: {
+            source: require('../assets/AboutUs/Transporte/planoCercaniasSE.png'),
+        }
+    }]
+
+    const [modalVisible, setModalVisible] = React.useState(false);
 
     switch (route.params.transport) {
         case 'tussam':
@@ -209,16 +238,16 @@ export default function PopUpComponent({route, navigation}) {
                         </View>
                     </View>
 
-                    <View style={styles.tussamInfoAPP}>
-                        <Text style={styles.tussamText}>Descarga la APP de Tussam</Text>
+                    <View style={styles.infoAPP}>
+                        <Text style={styles.infoAPPText}>Descarga la APP de Tussam</Text>
                         <View style={styles.appsButton}>
-                            <TouchableHighlight onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.geoactio.tussam')}>
+                            <TouchableOpacity onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.geoactio.tussam')}>
                                 <Image style={styles.playstoreImage} source={googleplay}/>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
 
-                            <TouchableHighlight onPress={() => Linking.openURL('https://apps.apple.com/es/app/apptussam/id570963740')}>
+                            <TouchableOpacity onPress={() => Linking.openURL('https://apps.apple.com/es/app/apptussam/id570963740')}>
                                 <Image style={styles.appStoreImage} source={appstore}/>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                         </View>
                     </View>
 
@@ -230,21 +259,54 @@ export default function PopUpComponent({route, navigation}) {
                     <View style={styles.container}>
                         <View style={{flexDirection: "row", flexWrap: "wrap", alignItems: 'center'}}>
                             <Image style={styles.logo} source={busLogo}/>
-                            <Text style={{fontWeight: 'bold', fontSize: 11}}>AUTOBÚS. Consorcio de transporte metropolitano:</Text>
+                            <Text style={{fontWeight: 'bold', fontSize: 12}}>AUTOBÚS. Consorcio de transporte metropolitano</Text>
                         </View>
 
-                        <View style={{paddingLeft:20}}>
-                            <Text style={{fontSize: 11}}>
-                                • M-132 Sevilla-Dos Hermanas (barriada)
-                            </Text>
+                        <View>
+                            <TouchableOpacity style={styles.consorcioBusButton} onPress={()=> setModalVisible(true)}>
+                                <Text style={styles.infoBusConsorcio}>
+                                    M-132 Sevilla-Dos Hermanas (barriada)
+                                </Text>                            
+                            </TouchableOpacity>
 
-                            <Text style={{fontSize: 11}}>
-                                • M-133 Sevilla-Dos Hermanas (por Olivar de Quintos)
-                            </Text>
+                            {modalVisible==true?
+                                <Modal animationType="fade" transparent={true} visible={modalVisible}>
+                                    <ImageViewer backgroundColor='#eee' imageUrls={mapasConsorcioBus} index={0} enableSwipeDown onSwipeDown= {()=> setModalVisible(false)} />
+                                </Modal>:<></>
+                            }
 
-                            <Text style={{fontSize: 11}}>
-                                • M-134 Sevilla-Los Palacios
+                            <TouchableOpacity style={styles.consorcioBusButton} onPress={()=> setModalVisible(true)}>
+                                <Text style={styles.infoBusConsorcio}>
+                                    M-133 Sevilla-Dos Hermanas (por Olivar de Quintos)
+                                </Text>                            
+                            </TouchableOpacity>
+
+                            {modalVisible==true?
+                                <Modal animationType="fade" transparent={true} visible={modalVisible}>
+                                    <ImageViewer backgroundColor='#eee' imageUrls={mapasConsorcioBus} index={1} enableSwipeDown onSwipeDown= {()=> setModalVisible(false)} />
+                                </Modal>:<></>
+                            }
+
+                            <TouchableOpacity style={styles.consorcioBusButton} onPress={()=> setModalVisible(true)}>
+                                <Text style={styles.infoBusConsorcio}>
+                                    M-134 Sevilla-Los Palacios
+                                </Text>                            
+                            </TouchableOpacity>
+
+                            {modalVisible==true?
+                                <Modal animationType="fade" transparent={true} visible={modalVisible}>
+                                    <ImageViewer backgroundColor='#eee' imageUrls={mapasConsorcioBus} index={2} enableSwipeDown onSwipeDown= {()=> setModalVisible(false)} />
+                                </Modal>:<></>
+                            }
+                        </View>
+
+                        <View>
+                            <Text style={styles.infoTextoLogoConsorcio}>
+                                Más información pinchando en la imagen
                             </Text>
+                            <TouchableOpacity style={styles.botonLogoConsorcio} onPress={() => Linking.openURL('http://www.consorciotransportes-sevilla.com/')}>
+                                <Image style={styles.logoConsorcio} source={logoBusConsorcio}/>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
@@ -256,27 +318,72 @@ export default function PopUpComponent({route, navigation}) {
                     <View style={styles.container}>
                         <View style={{flexDirection: "row", flexWrap: "wrap", alignItems: 'center'}}>
                             <Image style={styles.logo} source={trainLogo}/> 
-                            <Text style={{fontWeight: 'bold', fontSize: 12}}>Tren. RENFE, cercanías sevilla:</Text>
+                            <Text style={{fontWeight: 'bold', marginTop: 10, fontSize: 13}}>Tren. RENFE, cercanías Sevilla:</Text>
+                        </View>
+                        
+                        <View>
+                            <Text style={{textAlign: 'center', paddingTop: 10, paddingBottom: 5, fontSize: 12, color:'#535353', lineHeight: 25, fontWeight: 'bold'}}>
+                                Línea C-1: Lebrija – Utrera – Santa Justa – Lora del Río
+                            </Text>
                         </View>
 
                         <View>
-                            <Text style={{paddingLeft:20, fontSize: 11}}>
-                                • Línea C-1: Lebrija – Utrera – Santa Justa – Lora del Río
-                            </Text>
+                            <TouchableOpacity style={styles.renfeMapaCercanias} onPress={()=> setModalVisible(true)}>
+                                <Image style={styles.planoCercanias} source={require('../assets/AboutUs/Transporte/planoCercaniasSE.png')}/> 
+                            </TouchableOpacity>
+
+                            {modalVisible==true?
+                                <Modal animationType="fade" transparent={true} visible={modalVisible}>
+                                    <ImageViewer backgroundColor='#eee' imageUrls={imagePreviewRenfe} enableSwipeDown onSwipeDown= {()=> setModalVisible(false)} />
+                                </Modal>:<></>
+                            }
+                        </View>
+
+                    </View>
+
+                    <View style={styles.infoAPP}>
+                        <Text style={styles.infoAPPText}>Descarga la APP de RENFE</Text>
+                        <View style={styles.appsButton}>
+                            <TouchableOpacity onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.renfeviajeros.ticket')}>
+                                <Image style={styles.playstoreImage} source={googleplay}/>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => Linking.openURL('https://apps.apple.com/es/app/renfe/id1544224672')}>
+                                <Image style={styles.appStoreImage} source={appstore}/>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
             )
 
-        case 'bycicle':
+        case 'bicycle':
             return(
                 <ScrollView>
                     <View style={styles.container}>
-                        <View style={[styles.container,{flexDirection: "row", flexWrap: "wrap", alignItems: 'center'}]}>
+                        <View style={[styles.container,{flexDirection: "row", flexWrap: "wrap", alignItems: 'center', marginTop: 5}]}>
                             <Image style={styles.logo} source={bicycleLogo}/> 
-                            <Text style={{fontWeight: 'bold', fontSize: 12}}>BICICLETA. Estación de SEVICI a escasos metros.</Text>
+                            <Text style={{fontWeight: 'bold', fontSize: 12}}>BICICLETA. Estación de SEVICI a escasos metros</Text>
                         </View>
                     </View>
+
+                    <Text style={styles.infoAPPText}>Consulta la web pinchando en la imagen</Text>
+                    <TouchableOpacity style={styles.seviciButton} onPress={() => Linking.openURL('https://www.sevici.es/es/home')}>
+                        <Image style={styles.seviciLogo} source={sevici}/>
+                    </TouchableOpacity>
+
+                    <View style={styles.infoAPP}>
+                        <Text style={styles.infoAPPText}>Descarga la APP de SEVICI</Text>
+                        <View style={styles.appsButton}>
+                            <TouchableOpacity onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.jcdecaux.vls.seville')}>
+                                <Image style={styles.playstoreImage} source={googleplay}/>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => Linking.openURL('https://apps.apple.com/es/app/sevici/id1539146596')}>
+                                <Image style={styles.appStoreImage} source={appstore}/>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
                 </ScrollView>
             )
 
@@ -316,12 +423,12 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 25,
         borderTopRightRadius: 40,
         borderBottomRightRadius:30,
-        marginVertical:10,
+        marginVertical:20,
         marginLeft: 10,
         marginRight: 10,
         padding: 10
     },
-    tussamText:{
+    infoAPPText:{
         textAlign:'center',
         fontSize:17,
         color:'#535353',
@@ -336,8 +443,8 @@ const styles = StyleSheet.create({
         width: 200,
         height: 80,
     },
-    tussamInfoAPP:{
-        marginTop: 30,
+    infoAPP:{
+        marginTop: 25,
         marginBottom: 20
     },
     appsButton:{
@@ -347,5 +454,56 @@ const styles = StyleSheet.create({
         margin: 10,
         marginTop: 20,
         alignItems: 'center',
-    }
+    },
+    planoCercanias:{
+        width: 400,
+        height: 400,
+        resizeMode: 'contain',
+    },
+    seviciLogo:{
+        width: 300,
+        height: 200,
+        marginTop: -15,
+        marginBottom: 15,
+        resizeMode: 'center',
+        alignSelf: 'center',
+    },
+    seviciButton:{
+        alignSelf: 'center',
+        marginTop: 30
+    },
+    renfeMapaCercanias:{
+        alignSelf: 'center',
+    },
+    consorcioBusButton:{
+        marginTop: 40,
+        alignSelf: 'center',
+        padding: 20,
+        width: 300,
+        backgroundColor: "#6099c4",
+        justifyContent: 'center',
+    },
+    infoBusConsorcio:{
+        color:'white',
+        paddingLeft: 10,
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 10,
+    },
+    botonLogoConsorcio:{
+      alignSelf: 'center',
+    },
+    logoConsorcio:{
+        width: 300,
+        resizeMode: 'contain',
+    },
+    infoTextoLogoConsorcio:{
+        textAlign:'center',
+        fontSize:17,
+        color:'#535353',
+        lineHeight: 25,
+        fontWeight: 'bold',
+        marginTop: 35
+    },
 });
