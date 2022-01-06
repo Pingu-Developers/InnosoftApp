@@ -34,6 +34,7 @@
     },
     "plugins": [
       "expo-system-ui"
-    ]
+    ],
+    "description": ""
   }
 }
