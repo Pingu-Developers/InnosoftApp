@@ -42,7 +42,7 @@ function News({ navigation }) {
     const refreshButton = require('../assets/News/refresh.png')
     const API_HOST = process.env.API_HOST;
     const API_PORT = process.env.API_PORT;
-    const url = `http://${API_HOST}:${API_PORT}/api/v1/posts`;
+    const url = `${API_HOST}:${API_PORT}/api/v1/posts`;
 
     React.useEffect(() => {
         if (isFocused) {
@@ -75,13 +75,11 @@ function News({ navigation }) {
             })
             .catch(err => {
                 clearTimeout(timeout);
-                console.log('Error fetching news:', error);
                 Alert.alert('Error', 'Error fetching news');
             });
     }
 
     const onRefresh = React.useCallback(() => {
-        console.log('Refreshing...')
         setRefreshing(true);
         getNews();
         setRefreshing(false);

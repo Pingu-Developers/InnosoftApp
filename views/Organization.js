@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Modal} fro
 import ImageViewer from 'react-native-image-zoom-viewer';
 import fotoOrganizacionJornadas from '../assets/AboutUs/Organizacion/organizacionJornadas.png';
 import logoInnosoft from '../assets/home/logo-innosoft.png';
+import { Linking } from 'react-native';
 
 export default function Organization() {
 

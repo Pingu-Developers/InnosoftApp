@@ -27,7 +27,7 @@ export default function StackAboutUs() {
           <Stack.Screen name="Contactanos" component={Contact} />
           <Stack.Screen name="Como Llegar" component={HowToGetTo} />
           <Stack.Screen name="Organización" component={Organization}/>
-          <Stack.Screen name="PopUpTransport" component={PopUpTransport}/>
+          <Stack.Screen name="Transporte" component={PopUpTransport}/>
       </Stack.Navigator>
   )
 };

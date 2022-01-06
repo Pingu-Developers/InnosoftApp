@@ -19,7 +19,7 @@ export default function Speakers({ navigation }) {
     const [success, setSuccess] = React.useState(false);
     const [fail, setFail] = React.useState(false);
     const refreshButton = require('../assets/Speakers/refresh.png')
-    const url = `http://${API_HOST}:${API_PORT}/api/v1/speakers`;
+    const url = `${API_HOST}:${API_PORT}/api/v1/speakers`;
 
     //Load when is focus
     React.useEffect(() => {
@@ -56,13 +56,11 @@ export default function Speakers({ navigation }) {
             })
             .catch(err => {
                 clearTimeout(timeout);
-                console.log('Error fetching speakers:', error);
                 Alert.alert('Error', 'Error fetching speakers');
             });
     }
 
     const onRefresh = React.useCallback(() => {
-        console.log('Refreshing...')
         setRefreshing(true);
         getSpeakers();
         setRefreshing(false);
