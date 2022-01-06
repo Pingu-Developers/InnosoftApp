@@ -13,10 +13,10 @@ export default function AboutUs({navigation}) {
         <View style={styles.main}>
             <Grid>
                 <Row size={20}>
-                    <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('Sobre nosotros')}}>
+                    <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('Sobre nosotros', {screen: 'InnosoftDays'})}}>
                         <View style={styles.content}>
                             <Image tintColor='white' style={styles.logo} source={aboutUsLogo}/>
-                            <Text style={styles.texto}>Nosotros</Text>
+                            <Text style={styles.texto}>InnosoftDays</Text>
                         </View>
                     </TouchableOpacity>                    
                 </Row>
