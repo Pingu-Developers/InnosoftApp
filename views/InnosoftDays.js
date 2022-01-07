@@ -13,13 +13,13 @@ export default function InnosoftDays({navigation}) {
                     Talleres, debates, conferencias, concursos de programación, sorteos y mucho más durante las jornadas Innosoft celebradas todos los años en Noviembre.
                 </Text>
 
-                <TouchableOpacity onPress={()=>{navigation.navigate('Sobre nosotros', {screen:'Contactanos'})}}>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Contactanos')}}>
                     <Text style={styles.textoIntroduccion}>
                         Pulsa aquí para consultar todas nuestras redes sociales y no perderte ninguna novedad de las jornadas
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={()=>{navigation.navigate('Sobre nosotros', {screen:'Organización'})}}>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Organización')}}>
                     <Text style={styles.textoIntroduccion}>
                         ¿Quieres conocer la organización llevada a cabo para realizar las jornadas Innosoft? Pincha aquí para verla
                     </Text>
