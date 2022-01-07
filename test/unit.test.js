@@ -2,10 +2,10 @@
 
 const nock = require('nock');
 
-describe("e2e test", () => {
+describe("unit test", () => {
     
     /* BEFORE ALL: load mocks */
-    before(() => {
+    beforeAll(() => {
         // set env vars
         process.env.API_HOST = 'http://localhost';
         process.env.API_PORT = '5000';

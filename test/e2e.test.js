@@ -5,7 +5,7 @@ const socket = require("socket.io-client")('http://localhost:5001', {transports:
 describe("e2e test", () => {
     
     /* BEFORE ALL: setup docker compose e2e */
-    before(() => {
+    beforeAll(() => {
         // set env vars
         process.env.API_HOST = 'http://localhost';
         process.env.API_PORT = '5000';
