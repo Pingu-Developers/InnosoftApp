@@ -9,12 +9,9 @@ import Home from '../views/Home';
 import News from '../views/News';
 import Program from '../views/Program';
 import Speakers from '../views/Speakers';
-import AboutUs from '../views/AboutUs';
 import StackAboutUs from '../views/StackAboutUS';
 
-import LoginScreen from '../chat/screens/LoginScreen';
-import ChatScreen from '../chat/screens/ChatScreen';
-import LobbyScreen from '../chat/screens/LobbyScreen';
+import StackChat from '../views/StackChat';
 
 function DrawerMenu(props){
     return(
@@ -68,9 +65,7 @@ function MyDrawer() {
         <Drawer.Screen name="Programa" component={Program} />
         <Drawer.Screen name="Ponentes" component={Speakers} />
         <Drawer.Screen name="Sobre nosotros" component={StackAboutUs}/>
-        <Drawer.Screen name="Chat" component={LoginScreen}/>
-        <Drawer.Screen name="Sala" component={ChatScreen}/>
-        <Drawer.Screen name="Lobby" component={LobbyScreen}/>
+        <Drawer.Screen name="Chat" component={StackChat}/>
     </Drawer.Navigator>
   );
 }  

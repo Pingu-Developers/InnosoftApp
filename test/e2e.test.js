@@ -1,11 +1,12 @@
 'use strict';
 
 const socket = require("socket.io-client")('http://localhost:5001', {transports: ['websocket']});
+const { execSync } = require('child_process'); 
 
 describe("e2e test", () => {
     
     /* BEFORE ALL: setup docker compose e2e */
-    before(() => {
+    beforeAll((done) => {
         // set env vars
         process.env.API_HOST = 'http://localhost';
         process.env.API_PORT = '5000';
@@ -13,8 +14,8 @@ describe("e2e test", () => {
 
         console.log('---------- Start E2E infrastructure ----------');
         try {
-            execSync("docker-compose -f tests/docker-compose-e2e.yaml pull db innoApi innoChatDb");
-            execSync("docker-compose -f tests/docker-compose-e2e.yaml up -d db innoApi innoChatDb");
+            execSync("docker-compose -f test/docker-compose-e2e.yaml pull");
+            execSync("docker-compose -f test/docker-compose-e2e.yaml up -d");
             setTimeout(() => done(), 25000);
         } 
         catch (err) {
@@ -27,11 +28,11 @@ describe("e2e test", () => {
     require('./jest');
 
     /* AFTER ALL: docker compose down */
-    after((done) => {
+    afterAll((done) => {
         console.log('---------- Stop E2E infrastructure ----------');
         try {
             socket.disconnect();
-            execSync("docker-compose -f tests/docker-compose-e2e.yaml down");
+            execSync("docker-compose -f test/docker-compose-e2e.yaml down");
             done();
         } catch (err) {
             console.log(err);

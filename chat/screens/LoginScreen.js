@@ -8,7 +8,6 @@ const LoginScreen = (props) => {
 
     const continueToChat = () => {
         props.navigation.navigate("Lobby", {name: name});
-        
     };
 
     const validateName = () => {
@@ -26,6 +25,10 @@ const LoginScreen = (props) => {
         }
     };
 
+    const handleTextChange = (text) => {
+        setName(text);
+    };
+
 
 
     return (
@@ -39,13 +42,14 @@ const LoginScreen = (props) => {
                 <Text style={styles.header}>Usuario</Text>
 
                 <TextInput
+                testID="nameInput"
                 style={styles.input}
                 placeholder="Inserta un nombre de usuario"
-                onChangeText={(name) => setName(name)} value={name} />
+                onChangeText={(name) => handleTextChange(name)} value={name} />
 
                 <View style={{alignItems: "flex-end", matginTop: 64}}>
 
-                    <TouchableOpacity style={styles.continue} onPress={() => validateName()}>
+                    <TouchableOpacity testID="continue" style={styles.continue} onPress={() => validateName()}>
                         <Ionicons name="ios-arrow-forward" size={32} color="white" />
                     </TouchableOpacity>
                     
