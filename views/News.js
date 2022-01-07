@@ -118,7 +118,7 @@ function News({ navigation }) {
 
     return (
         news && news.length ?
-            <ScrollView
+            <ScrollView testID='loadedWithData'
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
@@ -158,7 +158,7 @@ function News({ navigation }) {
                 ))}
             </ScrollView>
             :
-            <View style={styles.container}>
+            <View style={styles.container} testID='loadedWithoutData'>
                 <Text style={{ fontSize: 20, color: "#cccccc" }}>
                     No hay noticias
                 </Text>
