@@ -1,5 +1,7 @@
 'use strict';
 
+const nock = require('nock');
+
 describe("Test Unitarios", () => {
     
     /* BEFORE ALL: load mocks */

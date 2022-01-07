@@ -6,6 +6,7 @@ const { execSync } = require('child_process');
 describe("e2e test", () => {
     
     /* BEFORE ALL: setup docker compose e2e */
+
     beforeAll((done) => {
         // set env vars
         process.env.API_HOST = 'http://localhost';
