@@ -1,5 +1,7 @@
 'use strict';
 
+const nock = require('nock');
+
 describe("Test Unitarios", () => {
     process.env.API_HOST = 'http://localhost';
     process.env.API_PORT = '5000';

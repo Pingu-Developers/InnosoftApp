@@ -11,6 +11,7 @@ process.env.E2E = true;
 describe("e2e test", () => {
     console.error = jest.fn();
     /* BEFORE ALL: setup docker compose e2e */
+
     beforeAll((done) => {
 
         console.log('---------- Start E2E infrastructure ----------');
