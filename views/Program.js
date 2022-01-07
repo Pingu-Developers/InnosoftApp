@@ -118,7 +118,7 @@ export default function Program() {
     }
     const renderEmptyData = () => {
         return (
-            <View style={styles.emptyData}>
+            <View testID='loadedWithoutData' style={styles.emptyData}>
                 <Text style={{color: 'gray'}}>No hay eventos para esta fecha</Text>
             </View>
         );
@@ -133,6 +133,7 @@ export default function Program() {
             rowHasChanged={(r1, r2) => r1.id !== r2.id}
             onRefresh={() => {setRefreshing(true)}}
             refreshing={refreshing}
+            testID='loadedWithData'
         />
     )
 }
