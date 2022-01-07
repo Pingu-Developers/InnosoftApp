@@ -19,7 +19,6 @@ export default function Program() {
     // Refresh
     React.useEffect( () => {
         if(refreshing) {
-            console.log("Refreshing...");
             loadFromApi(apiHost, apiPort);
             setRefreshing(false);
         }
@@ -61,7 +60,7 @@ export default function Program() {
             })
             .catch(error => {
                 clearTimeout(timeout);
-                console.log('Error fetching events:', error);
+                console.error('Error fetching events:', error);
                 Alert.alert('Error', 'Error fetching events');
             })
     }

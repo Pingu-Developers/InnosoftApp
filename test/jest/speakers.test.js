@@ -1,10 +1,7 @@
-
-
 import React from 'react';
-import { render, fireEvent, cleanup, waitFor } from '@testing-library/react-native';
+import { render, cleanup, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Speakers from '../../views/Speakers';
-import axios from 'axios';
 
 const nock = require('nock');
 

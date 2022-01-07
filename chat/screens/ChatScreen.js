@@ -33,9 +33,7 @@ const ChatScreen = (props) => {
             }
             fetchData();
 
-            socket.connect();
             socket.on('connect', (msg) => {
-
                 socket.emit("chatConnection", {user:name, room:room});
             });
             
@@ -54,6 +52,8 @@ const ChatScreen = (props) => {
                 console.log(msg);
             });
 
+            socket.connect();
+
             return () => {
                 socket.emit("chatDisconnect", {user:name,room});
                 socket.disconnect();
@@ -63,7 +63,7 @@ const ChatScreen = (props) => {
     );
 
     React.useEffect(() => {
-        if(message) socket.emit("chatMessage", message);
+        if(message.text) socket.emit("chatMessage", message);
     }, [message]);
 
     React.useEffect(() => {

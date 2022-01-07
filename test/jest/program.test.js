@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, waitFor } from '@testing-library/react-native';
+import { render, cleanup, waitFor } from '@testing-library/react-native';
 import Program from '../../views/Program';
 const nock = require('nock');
 

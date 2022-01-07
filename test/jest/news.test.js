@@ -1,15 +1,18 @@
-jest.useFakeTimers()
-
 import React from 'react';
-import {render, fireEvent, waitFor} from '@testing-library/react-native';
+import { render, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MainScreen from '../../views/News';
+const nock = require('nock');
 
 const API_HOST = process.env.API_HOST;
 const API_PORT = process.env.API_PORT;
 const url = `${API_HOST}:${API_PORT}/api/v1`;
 
 describe('Tests del componente MainScreen de News', () => {
+    if (!process.env.E2E) {
+        jest.useFakeTimers();
+    }
+
     test('Test cuando hay noticias', async () => {
         const component = (
             <NavigationContainer>
@@ -17,33 +20,34 @@ describe('Tests del componente MainScreen de News', () => {
             </NavigationContainer>
         )
 
-        const {findByText} = render(component)
+        const { getByTestId, queryByTestId } = render(component)
 
-        const screen = findByText('Event')
-        
-        expect(screen).toBeTruthy()
+        await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 
-    })
-
-    it('Test cuando no hay noticias', async () => {
-        const nock = require('nock');
-
-        nock(url)
-            .get('/posts')
-            .reply(200);
-
-        const component = (
-            <NavigationContainer>
-                <MainScreen />
-            </NavigationContainer>
-        )
-
-        const {findByText} = render(component)
-
-        const screen = findByText('No hay noticias')
-
-        expect(screen).toBeTruthy()
+        expect(queryByTestId('loadedWithData')).toBeTruthy();
 
     })
+
+    if (!process.env.E2E) {
+        it('Test cuando no hay noticias', async () => {
+            
+            nock(url)
+                .get('/posts')
+                .reply(200, []);
+
+            const component = (
+                <NavigationContainer>
+                    <MainScreen />
+                </NavigationContainer>
+            )
+
+            const { getByTestId, queryByTestId } = render(component)
+
+            await waitFor(() => getByTestId('loadedWithoutData'), { timeout: 10000 });
+
+            expect(queryByTestId('loadedWithoutData')).toBeTruthy();
+
+        })
+    }
 })
 
