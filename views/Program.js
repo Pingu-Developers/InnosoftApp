@@ -19,7 +19,6 @@ export default function Program() {
     // Refresh
     React.useEffect( () => {
         if(refreshing) {
-            console.log("Refreshing...");
             loadFromApi(apiHost, apiPort);
             setRefreshing(false);
         }
@@ -61,7 +60,7 @@ export default function Program() {
             })
             .catch(error => {
                 clearTimeout(timeout);
-                console.log('Error fetching events:', error);
+                console.error('Error fetching events:', error);
                 Alert.alert('Error', 'Error fetching events');
             })
     }
@@ -118,7 +117,7 @@ export default function Program() {
     }
     const renderEmptyData = () => {
         return (
-            <View style={styles.emptyData}>
+            <View testID='loadedWithoutData' style={styles.emptyData}>
                 <Text style={{color: 'gray'}}>No hay eventos para esta fecha</Text>
             </View>
         );
@@ -133,6 +132,7 @@ export default function Program() {
             rowHasChanged={(r1, r2) => r1.id !== r2.id}
             onRefresh={() => {setRefreshing(true)}}
             refreshing={refreshing}
+            testID='loadedWithData'
         />
     )
 }

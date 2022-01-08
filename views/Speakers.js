@@ -99,7 +99,7 @@ export default function Speakers({ navigation }) {
     if (loading) {
         wait(5000).then(() => setLoading(false));
         return (
-            <View style={styles.container}>
+            <View testID='speakers' style={styles.container}>
                 <ActivityIndicator size="large" color="#54aaff" />
             </View>
         )
@@ -130,7 +130,7 @@ export default function Speakers({ navigation }) {
     return (
 
         speakers && speakers.length ?
-            <View style={styles.main}>
+            <View testID='loadedWithData' style={styles.main}>
                 <Carousel
                     refreshControl={
                         <RefreshControl
@@ -149,7 +149,7 @@ export default function Speakers({ navigation }) {
                 {flashMessagesSucces()}
                 {flashMessagesFail()}
             </View> :
-            <View style={styles.container}>
+            <View testID='loadedWithoutData' style={styles.container}>
                 <Text style={{ fontSize: 20, color: "#cccccc" }}>
                     No hay ponentes
                 </Text>

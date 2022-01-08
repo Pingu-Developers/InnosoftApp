@@ -11,7 +11,7 @@ const LobbyScreen = (props) => {
             <View style={styles.circle} />
 
             <View style={{marginHorizontal: 32}}>
-                <Text style={styles.header}>¡Hola {name}!</Text>
+                <Text testID='lobbyHeader' style={styles.header}>¡Hola {name}!</Text>
                 <Text style={styles.body}>Inserta el PIN de la sala</Text>
                 <TextInput
                 style={styles.input}
@@ -20,7 +20,7 @@ const LobbyScreen = (props) => {
 
                 <View style={{alignItems: "flex-end", matginTop: 64}}>
 
-                    <TouchableOpacity style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, room: pin || "general"})}>
+                    <TouchableOpacity testID='continuePin' style={styles.continue} onPress={() => props.navigation.navigate('Sala', {name: name, room: pin || "general"})}>
                         <Ionicons name="ios-arrow-forward" size={32} color="white" />
                     </TouchableOpacity>                    
                 </View>
