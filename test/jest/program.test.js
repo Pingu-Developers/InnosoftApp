@@ -2,6 +2,7 @@ import React from 'react';
 import { render, cleanup, waitFor } from '@testing-library/react-native';
 import Program from '../../views/Program';
 const nock = require('nock');
+require('../mocks/index').program;
 
 describe('Tests del componente Program', () => {
 
@@ -21,6 +22,10 @@ describe('Tests del componente Program', () => {
     it('Carga correctamente la pagina Program con datos', async () => {
 
         const { getByTestId, queryByTestId } = render(component);
+
+        nock('http://localhost:5000')
+            .get('/api/v1/events')
+            .reply(200, require('../mocks/index').program);
 
         await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MainScreen from '../../views/News';
+
+;
 const nock = require('nock');
 
 const API_HOST = process.env.API_HOST;
@@ -19,6 +21,10 @@ describe('Tests del componente MainScreen de News', () => {
                 <MainScreen />
             </NavigationContainer>
         )
+
+        nock(url)
+            .get('/posts')
+            .reply(200, require('../mocks/index').news);
 
         const { getByTestId, queryByTestId } = render(component)
 

@@ -1,10 +1,4 @@
-import nock from 'nock';
-
-const API_HOST = process.env.API_HOST;
-const API_PORT = process.env.API_PORT;
-const url = `${API_HOST}:${API_PORT}/api/v1`;
-
-const newsMock = 
+module.exports = 
 [
   {
     "postId": 0,
@@ -22,7 +16,4 @@ const newsMock =
   }
 ];
 
-nock(url)
-    .get('/posts')
-    .reply(200, newsMock);
 

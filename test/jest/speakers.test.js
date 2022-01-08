@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Speakers from '../../views/Speakers';
 
 const nock = require('nock');
+require('../mocks/index').speaker;
 
 describe('Speakers', () => {
 
@@ -19,6 +20,10 @@ describe('Speakers', () => {
     it('Carga correctamente la pagina Speakers con datos', async() => {
     
         const { getByTestId,queryByTestId } = render(<NavigationContainer><Speakers /></NavigationContainer>);
+
+        nock('http://localhost:5000')
+            .get('/api/v1/speakers')
+            .reply(200, require('../mocks/index').speaker);
 
         await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 

@@ -18,53 +18,6 @@ describe('Tests del componente Home', () => {
         cleanup();
     });
 
-    it('El boton ponentes nos lleva corectamente a su vista con datos', async () => {
-
-        const component = (
-            <NavigationContainer>
-                <Home />
-                <Speakers />
-            </NavigationContainer>
-        )
-
-        let renderComponent = render(<NavigationContainer><Speakers /></NavigationContainer>)
-        const { queryByText } = render(component);
-        const { queryByTestId, getByTestId } = renderComponent;
-
-        const oldScreen = queryByText(/Revisa los ponentes/)
-        const button = queryByText('Ponentes')
-        fireEvent(button, 'press')
-
-        await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 })
-
-        expect(oldScreen).toBeTruthy()
-        expect(getByTestId('loadedWithData')).toBeTruthy()
-    });
-
-    it('El boton noticias nos lleva corectamente a su vista sin datos', async () => {
-
-        const component = (
-            <NavigationContainer>
-                <Home />
-                <News />
-            </NavigationContainer>
-        )
-
-        let renderComponent = render(<NavigationContainer><News /></NavigationContainer>)
-        const { queryByText } = render(component);
-        const { queryByTestId, getByTestId } = renderComponent;
-
-        const oldScreen = queryByText(/novedades en Innosoft/)
-        const button = queryByText('Noticias')
-        fireEvent(button, 'press')
-
-        await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 })
-
-        expect(oldScreen).toBeTruthy()
-        expect(getByTestId('loadedWithData')).toBeTruthy()
-    });
-
-
     if (!process.env.E2E) {
         it('El boton programa nos lleva corectamente a su vista sin datos', () => {
 
@@ -146,9 +99,6 @@ describe('Tests del componente Home', () => {
             expect(oldScreen).toBeTruthy()
             expect(getByTestId('loadedWithoutData')).toBeTruthy()
         });
-
     }
-
-
 });
 
