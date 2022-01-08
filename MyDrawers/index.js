@@ -9,9 +9,9 @@ import Home from '../views/Home';
 import News from '../views/News';
 import Program from '../views/Program';
 import Speakers from '../views/Speakers';
-import AboutUs from '../views/AboutUs';
 import StackAboutUs from '../views/StackAboutUS';
 
+import StackChat from '../views/StackChat';
 
 function DrawerMenu(props){
     return(
@@ -44,6 +44,7 @@ function Menu(props){
             <DrawerMenu iconName='schedule' titleName='Programa' navigation={()=>props.navigation.navigate('Programa')}/>
             <DrawerMenu iconName='people' titleName='Ponentes' navigation={()=>props.navigation.navigate('Ponentes')}/>
             <DrawerMenu iconName='call' titleName='Sobre nosotros' navigation={()=>props.navigation.navigate('Sobre nosotros',{screen:'AboutUs'})}/>
+            <DrawerMenu iconName='chat' titleName='Chat' navigation={()=>props.navigation.navigate('Chat')}/>
         </View>
     )
 }
@@ -64,6 +65,7 @@ function MyDrawer() {
         <Drawer.Screen name="Programa" component={Program} />
         <Drawer.Screen name="Ponentes" component={Speakers} />
         <Drawer.Screen name="Sobre nosotros" component={StackAboutUs}/>
+        <Drawer.Screen name="Chat" component={StackChat}/>
     </Drawer.Navigator>
   );
 }  

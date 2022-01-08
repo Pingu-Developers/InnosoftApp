@@ -10,7 +10,7 @@ import { ScrollView } from 'react-native';
 
 export default function Contact() {
     return (
-        <ScrollView style={{marginTop:20}}>            
+        <ScrollView>            
             <View style={styles.divBoton}>
                 <TouchableOpacity style={[styles.boton, {backgroundColor: '#833AB4'}]} onPress={()=>{Linking.openURL("https://www.instagram.com/innosoftdays/")}}>
                     <View style={{flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}>

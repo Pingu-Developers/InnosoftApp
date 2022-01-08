@@ -13,16 +13,16 @@ export default function AboutUs({navigation}) {
         <View style={styles.main}>
             <Grid>
                 <Row size={20}>
-                    <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('Sobre nosotros')}}>
+                    <TouchableOpacity style={styles.aboutUs} onPress={()=>{navigation.navigate('InnosoftDays')}}>
                         <View style={styles.content}>
                             <Image tintColor='white' style={styles.logo} source={aboutUsLogo}/>
-                            <Text style={styles.texto}>Nosotros</Text>
+                            <Text style={styles.texto}>InnosoftDays</Text>
                         </View>
                     </TouchableOpacity>                    
                 </Row>
 
                 <Row size={40}>
-                    <TouchableOpacity style={styles.RSS} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Contactanos'})}}>
+                    <TouchableOpacity style={styles.RSS} onPress={()=>{navigation.navigate('Contactanos')}}>
                         <View style={styles.content}>
                             <Image tintColor='white' style={styles.logo} source={contactLogo}/>
                             <Text style={styles.texto}>Síguenos en RSS</Text>
@@ -32,7 +32,7 @@ export default function AboutUs({navigation}) {
 
                 <Row size={20} style={styles.rowSpace}>
                     <Col>
-                        <TouchableOpacity style={styles.howToGetTo} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Como Llegar'})}}>
+                        <TouchableOpacity style={styles.howToGetTo} onPress={()=>{navigation.navigate('Como Llegar')}}>
                             <View style={styles.content}>
                                 <Image tintColor='white' style={styles.logo} source={mapLogo}/>
                                 <Text style={styles.texto}>Cómo llegar</Text>
@@ -41,7 +41,7 @@ export default function AboutUs({navigation}) {
                     </Col>
 
                     <Col>
-                        <TouchableOpacity style={styles.organization} onPress={()=>{navigation.navigate('Sobre nosotros',{screen:'Organización'})}}>
+                        <TouchableOpacity style={styles.organization} onPress={()=>{navigation.navigate('Organización')}}>
                             <View style={styles.content}>
                                 <Image tintColor='white' style={styles.logo} source={organizationLogo}/>
                                 <Text style={styles.texto}>Organización</Text>
