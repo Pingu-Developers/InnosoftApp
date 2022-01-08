@@ -18,12 +18,14 @@ describe('Speakers', () => {
     });
 
     it('Carga correctamente la pagina Speakers con datos', async() => {
-    
+        jest.useFakeTimers();
         const { getByTestId,queryByTestId } = render(<NavigationContainer><Speakers /></NavigationContainer>);
 
-        nock('http://localhost:5000')
-            .get('/api/v1/speakers')
-            .reply(200, require('../mocks/index').speaker);
+        if (!process.env.E2E) {
+            nock('http://localhost:5000')
+                .get('/api/v1/speakers')
+                .reply(200, require('../mocks/index').speaker);
+        }
 
         await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 

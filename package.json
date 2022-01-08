@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test:unit": "jest test/unit.test.js",
-    "test:e2e": "jest test/e2e.test.js --testTimeout=100000"
+    "test:e2e": "jest test/e2e.test.js --testTimeout=100000 --silent"
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "0.2.6",

@@ -20,12 +20,14 @@ describe('Tests del componente Program', () => {
     )
 
     it('Carga correctamente la pagina Program con datos', async () => {
-
+        jest.useFakeTimers();
         const { getByTestId, queryByTestId } = render(component);
 
-        nock('http://localhost:5000')
-            .get('/api/v1/events')
-            .reply(200, require('../mocks/index').program);
+        if (!process.env.E2E) {
+            nock('http://localhost:5000')
+                .get('/api/v1/events')
+                .reply(200, require('../mocks/index').program);
+        }
 
         await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 

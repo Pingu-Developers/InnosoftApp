@@ -3,7 +3,6 @@ import { render, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MainScreen from '../../views/News';
 
-;
 const nock = require('nock');
 
 const API_HOST = process.env.API_HOST;
@@ -16,22 +15,23 @@ describe('Tests del componente MainScreen de News', () => {
     }
 
     test('Test cuando hay noticias', async () => {
+        jest.useFakeTimers();
         const component = (
             <NavigationContainer>
                 <MainScreen />
             </NavigationContainer>
-        )
-
-        nock(url)
-            .get('/posts')
-            .reply(200, require('../mocks/index').news);
-
+        )      
+        if (!process.env.E2E) {
+            nock(url)
+                .get('/posts')
+                .reply(200, require('../mocks/index').news);
+        }
         const { getByTestId, queryByTestId } = render(component)
 
         await waitFor(() => getByTestId('loadedWithData'), { timeout: 10000 });
 
         expect(queryByTestId('loadedWithData')).toBeTruthy();
-
+        await waitFor(() => Promise.resolve());
     })
 
     if (!process.env.E2E) {
@@ -52,7 +52,7 @@ describe('Tests del componente MainScreen de News', () => {
             await waitFor(() => getByTestId('loadedWithoutData'), { timeout: 10000 });
 
             expect(queryByTestId('loadedWithoutData')).toBeTruthy();
-
+            
         })
     }
 })
