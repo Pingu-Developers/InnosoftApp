@@ -1,4 +1,29 @@
-# 1.0.0 (2021-12-21)
+# [1.1.0](https://github.com/Pingu-Developers/InnosoftApp/compare/v1.0.0...v1.1.0) (2022-01-08)
+
+
+### Bug Fixes
+
+* Clean cache for updating env vars in .env ([68819a8](https://github.com/Pingu-Developers/InnosoftApp/commit/68819a83aad08582355f3572c131b9bf7b1a606f))
+* Fixed config causing env vars not being set ([a53a7c4](https://github.com/Pingu-Developers/InnosoftApp/commit/a53a7c4a54f07e2fc5c534a123a8857ed5c1a5fd))
+* Fixed reloading mode and backdrop from News view ([8dae006](https://github.com/Pingu-Developers/InnosoftApp/commit/8dae006e83667c7c71b9575bdd2f8f8ed4c816c0))
+* Fixed reloading mode and backdrop from Speakers view ([9100750](https://github.com/Pingu-Developers/InnosoftApp/commit/91007506fe835082e21deed2d516411c932cd086))
+* Integration errors ([add092b](https://github.com/Pingu-Developers/InnosoftApp/commit/add092b677ca952106f2a8d2693d6fe91a8d8d64))
+* mocks erros ([19979a2](https://github.com/Pingu-Developers/InnosoftApp/commit/19979a2c52e138eec7e9ac78ace88eebdd450630))
+
+
+### Features
+
+* added backdrop, reloading and no speakers view to speakers view ([0c70d8d](https://github.com/Pingu-Developers/InnosoftApp/commit/0c70d8d69b0aec21894caec3aa59b5d9df569e92)), closes [#29](https://github.com/Pingu-Developers/InnosoftApp/issues/29)
+* Added Innosoft and Organization Page ([52f6192](https://github.com/Pingu-Developers/InnosoftApp/commit/52f61920f37017e155731a314ae483e2699907f3))
+* added reload for news ([93b6d8a](https://github.com/Pingu-Developers/InnosoftApp/commit/93b6d8a7cedf36d9c493cf0d5ca2e6d9de1705ab)), closes [#25](https://github.com/Pingu-Developers/InnosoftApp/issues/25)
+* Added swipe back button for iOS devices ([3855486](https://github.com/Pingu-Developers/InnosoftApp/commit/38554867b2663dbb3ff21de0b8c05892fb893f2d))
+* Chat interface. ([8d4b25c](https://github.com/Pingu-Developers/InnosoftApp/commit/8d4b25c229fae2446e975949863e5b5125297665))
+* Implemented Chat feature using Websockets ([48b85cd](https://github.com/Pingu-Developers/InnosoftApp/commit/48b85cdca189e091ce16428b475c784b074d3cc4))
+* Improvement and redesign of AboutUs Page ([97e557c](https://github.com/Pingu-Developers/InnosoftApp/commit/97e557c060140ced0d7c48ee67d59839f6698bf7))
+
+
+
+# [1.0.0](https://github.com/Pingu-Developers/InnosoftApp/compare/c724a5d7d534ccbac6187197fd0b7c7bbf492941...v1.0.0) (2021-12-21)
 
 
 ### Bug Fixes
